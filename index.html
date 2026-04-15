@@ -1,22 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHB Project</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #081120, #0f172a);
+            color: white;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px 50px 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            color: #dbeafe;
+        }
+        .subtext {
+            font-size: 18px;
+            color: #cbd5e1;
+            max-width: 850px;
+            margin: 0 auto 35px auto;
+            line-height: 1.6;
+        }
+        .buttons { margin-top: 30px; }
+        .btn {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #081120;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid #38bdf8;
+        }
+        .section { padding: 40px 0; }
+        .section h2 {
+            font-size: 30px;
+            color: #7dd3fc;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .card {
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .card h3 { margin-top: 0; color: #38bdf8; }
+        .closing {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 20px;
+            line-height: 1.7;
+            color: #e2e8f0;
+        }
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #94a3b8;
+            padding: 30px 20px 50px 20px;
+        }
+    </style>
 </head>
 <body>
-    <style>
-body {
-    font-family: Arial;
-    background-color: #0f172a;
-    color: white;
-    text-align: center;
-    padding-top: 50px;
-}
-h1 {
-    color: #38bdf8;
-}
-</style>
-    <h1>Smart Hybrid Bunker</h1>
-<p>Primer prototipo funcionando</p>
+
+<div class="container hero">
+    <h1>SMART HYBRID BUNKER (SHB)</h1>
+    <p>
+        Unidad autónoma de protección diseñada para operar en condiciones extremas,
+        orientada a seguridad humana y continuidad operativa en escenarios de desastre.
+    </p>
+    <div class="subtext">
+        SHB se posiciona como una solución dentro del mercado de infraestructura resiliente,
+        donde ya existe financiamiento institucional y demanda creciente por protección avanzada.
+        Actualmente en fase de validación comercial y estructuración para inversión.
+    </div>
+
+    <div class="buttons">
+        <a href="#" class="btn" onclick="alert('Interés registrado')">Explorar oportunidad</a>
+        <a href="#" class="btn btn-secondary" onclick="alert('Próximamente pitch deck')">Ver proyecto</a>
+    </div>
+</div>
+
+<div class="container section">
+    <h2>Propuesta de valor</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Protección real</h3>
+            <p>
+                Diseñado para operar en entornos de alto riesgo, bajo condiciones extremas
+                donde las soluciones tradicionales pierden efectividad.
+            </p>
+        </div>
+        <div class="card">
+            <h3>Escalabilidad comercial</h3>
+            <p>
+                Estructura replicable con potencial en mercados institucionales, corporativos
+                y residenciales de alto valor.
+            </p>
+        </div>
+        <div class="card">
+            <h3>Narrativa financiable</h3>
+            <p>
+                Alineado con programas de mitigación, resiliencia y protección donde ya existe
+                inversión pública y privada disponible.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container section">
+    <h2>Tesis de inversión</h2>
+    <p>
+        SHB no es únicamente una estructura física. Es una plataforma de protección que se inserta
+        en el mercado de infraestructura resiliente, enfocado en la preservación de vidas,
+        protección de activos y continuidad operativa.
+    </p>
+    <p>
+        El valor no reside solo en la fabricación de unidades, sino en la creación de un activo
+        replicable y comercializable en un entorno donde el financiamiento para mitigación
+        de desastres ya está activo y en crecimiento.
+    </p>
+</div>
+
+<div class="container closing">
+    Estamos desarrollando una solución diseñada para generar confianza institucional
+    y al mismo tiempo capturar valor en un mercado con demanda real y financiamiento disponible.
+</div>
+
+<div class="footer">
+    SHB Project · Smart Hybrid Bunker · Prototipo digital inicial
+</div>
+
 </body>
 </html>
