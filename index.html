@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHB Project</title>
   <style>
     * {
@@ -37,7 +37,7 @@
     }
 
     .hero p {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto 22px auto;
       font-size: 24px;
       line-height: 1.6;
@@ -49,10 +49,10 @@
       font-weight: bold;
     }
 
-    .status {
+    .hero .status {
       color: #7dd3fc;
       font-size: 20px;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .buttons {
@@ -72,6 +72,7 @@
       font-weight: bold;
       border: 2px solid #38bdf8;
       transition: 0.2s ease;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -162,6 +163,97 @@
       font-size: 18px;
     }
 
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 420px;
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .modal-content h2 {
+      margin: 0 0 12px 0;
+      font-size: 28px;
+      color: #38bdf8;
+    }
+
+    .modal-content p {
+      margin: 0 0 18px 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 14px 14px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #081120;
+      color: #ffffff;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .modal-content textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .modal-btn {
+      flex: 1;
+      min-width: 140px;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal-btn-primary {
+      background: #25D366;
+      color: #ffffff;
+    }
+
+    .modal-btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid #38bdf8;
+    }
+
+    .note {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
     @media (max-width: 900px) {
       .hero h1 {
         font-size: 46px;
@@ -240,8 +332,8 @@
       </p>
 
       <div class="buttons">
-        <a href="#" class="btn btn-primary">Invertir en el proyecto</a>
-        <a href="#" class="btn btn-secondary">Acceder al pitch</a>
+        <button class="btn btn-primary" onclick="openModal()">Solicitar acceso al proyecto</button>
+        <a href="#" class="btn btn-secondary">Ver tesis de inversión</a>
         <a href="https://wa.me/17863320066" target="_blank" class="btn btn-whatsapp">Hablar directamente ahora</a>
       </div>
     </div>
@@ -332,8 +424,8 @@
           El acceso en esta etapa es limitado.
         </p>
         <div class="buttons">
-          <a href="#" class="btn btn-primary">Evaluar participación</a>
-          <a href="#" class="btn btn-secondary">Solicitar acceso prioritario</a>
+          <button class="btn btn-primary" onclick="openModal()">Evaluar participación</button>
+          <button class="btn btn-secondary" onclick="openModal()">Solicitar acceso prioritario</button>
         </div>
       </div>
     </div>
@@ -343,4 +435,66 @@
     SHB Project · Smart Hybrid Bunker · Landing de inversión inicial
   </div>
 
+  <div id="leadModal" class="modal">
+    <div class="modal-content">
+      <h2>Acceso al Proyecto SHB</h2>
+      <p>
+        Complete estos datos para continuar a contacto directo.
+      </p>
+
+      <input type="text" id="leadName" placeholder="Nombre completo" />
+      <input type="email" id="leadEmail" placeholder="Correo electrónico" />
+      <input type="text" id="leadAmount" placeholder="Monto estimado de inversión (USD)" />
+      <textarea id="leadMessage" placeholder="Mensaje breve (opcional)"></textarea>
+
+      <div class="modal-actions">
+        <button class="modal-btn modal-btn-primary" onclick="sendToWhatsApp()">Continuar a WhatsApp</button>
+        <button class="modal-btn modal-btn-secondary" onclick="closeModal()">Cerrar</button>
+      </div>
+
+      <div class="note">
+        Su información se usa únicamente para contacto inicial del proyecto.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('leadModal').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('leadModal').classList.remove('show');
+    }
+
+    function sendToWhatsApp() {
+      const name = document.getElementById('leadName').value.trim();
+      const email = document.getElementById('leadEmail').value.trim();
+      const amount = document.getElementById('leadAmount').value.trim();
+      const extra = document.getElementById('leadMessage').value.trim();
+
+      if (!name || !email) {
+        alert('Complete nombre y correo para continuar.');
+        return;
+      }
+
+      const text =
+        'Hola, solicito acceso al proyecto SHB.%0A' +
+        'Nombre: ' + encodeURIComponent(name) + '%0A' +
+        'Correo: ' + encodeURIComponent(email) + '%0A' +
+        'Monto estimado: ' + encodeURIComponent(amount || 'No indicado') + '%0A' +
+        'Mensaje: ' + encodeURIComponent(extra || 'Sin mensaje adicional');
+
+      window.open('https://wa.me/17863320066?text=' + text, '_blank');
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('leadModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+  </script>
+
 </body>
+</html>
