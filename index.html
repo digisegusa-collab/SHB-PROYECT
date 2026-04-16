@@ -612,10 +612,6 @@
         <p>
           El acceso en esta etapa es limitado. Las oportunidades de entrada temprana se manejan por contacto directo.
         </p>
-        <div class="buttons">
-          <a href="https://wa.me/17863320066" target="_blank" class="btn btn-priority">Solicitar acceso prioritario</a>
-          <button class="btn btn-primary" onclick="openModal()">Evaluar participación</button>
-        </div>
       </div>
     </div>
   </section>
@@ -678,7 +674,6 @@
     }
 
     window.onclick = function(event) {
-      const modal = document.getElementById('leadModal');
       if (event.target === document.getElementById('leadModal')) {
         closeModal();
       }
