@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHB Project</title>
+
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -18,54 +23,60 @@
 
     .container {
       width: 100%;
-      max-width: 1120px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
     .hero {
-      padding: 40px 0 60px 0;
+      padding: 34px 0 70px 0;
     }
 
     .hero-image {
       width: 100%;
-      border-radius: 18px;
       display: block;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      border-radius: 20px;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
       margin-bottom: 34px;
     }
 
     .hero-copy {
-      text-align: center;
       max-width: 980px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .hero h1 {
-      margin: 0 0 20px 0;
-      font-size: 58px;
-      line-height: 1.05;
+      margin: 0 0 18px 0;
+      font-size: 60px;
+      line-height: 1.02;
       color: #38bdf8;
       text-transform: uppercase;
     }
 
-    .hero p {
-      max-width: 920px;
-      margin: 0 auto 20px auto;
-      font-size: 24px;
-      line-height: 1.6;
+    .hero .subhead {
+      margin: 0 auto 18px auto;
+      max-width: 940px;
+      font-size: 26px;
+      line-height: 1.55;
       color: #e2e8f0;
     }
 
     .hero .strong {
+      margin: 0 auto 16px auto;
+      max-width: 940px;
+      font-size: 24px;
+      line-height: 1.6;
       color: #ffffff;
       font-weight: bold;
     }
 
     .hero .status {
-      color: #7dd3fc;
+      margin: 0 auto;
+      max-width: 900px;
       font-size: 20px;
-      margin-top: 8px;
+      line-height: 1.6;
+      color: #7dd3fc;
     }
 
     .buttons {
@@ -84,8 +95,8 @@
       font-size: 18px;
       font-weight: bold;
       border: 2px solid #38bdf8;
-      transition: 0.2s ease;
       cursor: pointer;
+      transition: 0.2s ease;
       background: transparent;
       color: #ffffff;
     }
@@ -101,13 +112,19 @@
       color: #ffffff;
     }
 
+    .btn-priority {
+      background: #0ea5e9;
+      border-color: #0ea5e9;
+      color: #ffffff;
+    }
+
     .section {
       padding: 56px 0;
     }
 
     .section h2 {
       margin: 0 0 18px 0;
-      font-size: 40px;
+      font-size: 42px;
       color: #7dd3fc;
     }
 
@@ -124,6 +141,7 @@
       border-radius: 18px;
       padding: 28px;
       margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
     .grid {
@@ -138,12 +156,13 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 18px;
       padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     }
 
     .card img {
       width: 100%;
-      border-radius: 12px;
       display: block;
+      border-radius: 12px;
       margin-bottom: 16px;
     }
 
@@ -161,7 +180,7 @@
     }
 
     ul {
-      margin: 20px 0 0 0;
+      margin: 18px 0 0 0;
       padding-left: 24px;
     }
 
@@ -172,13 +191,55 @@
       color: #e2e8f0;
     }
 
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: stretch;
+      margin-top: 24px;
+    }
+
+    .feature-panel {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    .feature-panel img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .feature-panel h3 {
+      margin: 0 0 12px 0;
+      font-size: 30px;
+      color: #38bdf8;
+    }
+
+    .feature-panel p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.65;
+      color: #e2e8f0;
+    }
+
     .final-cta {
       text-align: center;
     }
 
+    .final-cta .box p {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .footer {
       text-align: center;
-      padding: 40px 20px 60px 20px;
+      padding: 36px 20px 60px 20px;
       color: #94a3b8;
       font-size: 18px;
     }
@@ -200,12 +261,12 @@
 
     .modal-content {
       width: 100%;
-      max-width: 430px;
+      max-width: 450px;
       background: #0f172a;
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 16px;
       padding: 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.42);
     }
 
     .modal-content h2 {
@@ -274,36 +335,42 @@
       color: #94a3b8;
     }
 
-    @media (max-width: 900px) {
-      .hero h1 {
-        font-size: 44px;
-      }
-
-      .hero p,
-      .section p,
-      li,
-      .card p {
-        font-size: 19px;
-      }
-
-      .grid {
+    @media (max-width: 950px) {
+      .grid,
+      .two-col {
         grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+      }
+
+      .hero .subhead,
+      .hero .strong,
+      .section p,
+      .card p,
+      .feature-panel p,
+      li {
+        font-size: 19px;
       }
     }
 
     @media (max-width: 600px) {
       .hero {
-        padding: 26px 0 40px 0;
+        padding: 26px 0 42px 0;
       }
 
       .hero h1 {
         font-size: 34px;
       }
 
-      .hero p,
+      .hero .subhead,
+      .hero .strong,
+      .hero .status,
       .section p,
-      li,
-      .card p {
+      .card p,
+      .feature-panel p,
+      li {
         font-size: 16px;
         line-height: 1.65;
       }
@@ -312,7 +379,8 @@
         font-size: 28px;
       }
 
-      .card h3 {
+      .card h3,
+      .feature-panel h3 {
         font-size: 22px;
       }
 
@@ -338,16 +406,16 @@
       <div class="hero-copy">
         <h1>SMART HYBRID BUNKER (SHB)</h1>
 
-        <p>
-          Infraestructura crítica diseñada para capturar capital en el mercado de mitigación de desastres.
+        <p class="subhead">
+          Infraestructura crítica diseñada para capturar capital en el mercado de mitigación de desastres, resiliencia operativa y protección avanzada.
         </p>
 
-        <p>
-          Unidad autónoma de protección enfocada en preservar vidas, activos y continuidad operativa en escenarios extremos.
+        <p class="subhead">
+          Unidad autónoma de protección enfocada en preservar vidas, activos estratégicos y continuidad operativa en escenarios extremos.
         </p>
 
         <p class="strong">
-          Esto no es una idea. Es una solución alineada con un mercado que ya tiene financiamiento activo.
+          Esto no es una idea. Es una solución alineada con un mercado que ya tiene necesidad, presupuesto y urgencia.
         </p>
 
         <p class="status">
@@ -367,15 +435,15 @@
       <h2>El mercado ya existe</h2>
       <div class="box">
         <p>
-          SHB se posiciona dentro del sector de infraestructura resiliente, donde gobiernos, aseguradoras y sector privado ya están destinando capital a prevención, mitigación y protección avanzada.
+          SHB se posiciona dentro del sector de infraestructura resiliente, donde gobiernos, aseguradoras y sector privado ya están asignando capital a prevención, mitigación y protección avanzada.
         </p>
         <ul>
-          <li>Financiamiento activo en resiliencia y disaster recovery.</li>
-          <li>Presupuesto público y privado ya asignado.</li>
-          <li>Necesidad inmediata de soluciones implementables.</li>
+          <li>Financiamiento activo en resiliencia, disaster recovery y protección de infraestructura.</li>
+          <li>Presupuesto público y privado ya asignado en múltiples verticales.</li>
+          <li>Necesidad inmediata de soluciones implementables, certificables y escalables.</li>
         </ul>
         <p>
-          El problema no es el dinero. El problema es la falta de soluciones listas para capturarlo.
+          El problema no es el dinero. El problema es quién tiene una solución lista para capturarlo.
         </p>
       </div>
     </div>
@@ -384,12 +452,13 @@
   <section class="section">
     <div class="container">
       <h2>Capacidades del sistema</h2>
+
       <div class="grid">
         <div class="card">
           <img src="shb-structure.jpg" alt="Estructura reforzada SHB" />
           <h3>Estructura reforzada</h3>
           <p>
-            Diseñada para cargas extremas, anclaje seguro y desempeño estructural en condiciones críticas.
+            Arquitectura preparada para cargas extremas, desempeño estructural sólido y criterios de protección avanzados.
           </p>
         </div>
 
@@ -397,15 +466,15 @@
           <img src="shb-interior.jpg" alt="Interior del SHB" />
           <h3>Interior optimizado</h3>
           <p>
-            Espacio funcional para protección, soporte esencial y permanencia segura en eventos severos.
+            Espacio funcional diseñado para protección, permanencia segura y soporte esencial para cuatro ocupantes.
           </p>
         </div>
 
         <div class="card">
           <img src="shb-install.jpg" alt="Instalación del SHB" />
-          <h3>Instalación rápida</h3>
+          <h3>Despliegue eficiente</h3>
           <p>
-            Arquitectura modular para despliegue eficiente, relocalización y operación en tiempos cortos.
+            Instalación rápida, lógica modular y capacidad de implementación ágil para entornos operativos exigentes.
           </p>
         </div>
       </div>
@@ -420,11 +489,35 @@
           SHB no compite en construcción convencional. SHB se posiciona como un activo estratégico dentro del ecosistema de infraestructura resiliente.
         </p>
         <p>
-          No se trata solo de fabricar unidades. Se trata de capturar una porción de un mercado que ya está activo.
+          No se trata solo de fabricar unidades. Se trata de capturar una porción de un mercado que ya está activo, financiado y en expansión.
         </p>
         <p>
           Estamos desarrollando un activo replicable, escalable y comercializable, diseñado para integrarse en mercados donde el financiamiento ya existe.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Credibilidad visual y operativa</h2>
+
+      <div class="two-col">
+        <div class="feature-panel">
+          <img src="shb-structure.jpg" alt="Vista estructural SHB" />
+          <h3>Base técnica clara</h3>
+          <p>
+            El producto ya comunica ingeniería, modularidad, durabilidad y preparación para evaluación técnica. Eso reduce fricción comercial y aumenta percepción de seriedad ante aliados, compradores e inversionistas.
+          </p>
+        </div>
+
+        <div class="feature-panel">
+          <img src="shb-interior.jpg" alt="Vista interior SHB" />
+          <h3>Valor tangible</h3>
+          <p>
+            El mercado responde mejor cuando ve una solución concreta, no una promesa abstracta. Aquí ya existe visual de producto, caso de uso y narrativa de implementación.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -449,10 +542,10 @@
           Estamos abriendo conversaciones con inversionistas y aliados estratégicos para fase de ejecución.
         </p>
         <p>
-          El acceso en esta etapa es limitado.
+          El acceso en esta etapa es limitado. La entrada general se canaliza por formulario. El acceso prioritario se mueve por contacto directo.
         </p>
         <div class="buttons">
-          <button class="btn btn-primary" onclick="openModal()">Solicitar acceso prioritario</button>
+          <a href="https://wa.me/17863320066" target="_blank" class="btn btn-priority">Solicitar acceso prioritario</a>
         </div>
       </div>
     </div>
