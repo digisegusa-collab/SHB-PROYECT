@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHB Project</title>
   <style>
     * {
@@ -13,7 +13,7 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(180deg, #081120, #0f172a);
-      color: white;
+      color: #ffffff;
     }
 
     .container {
@@ -29,48 +29,34 @@
     }
 
     .hero h1 {
-      font-size: 64px;
-      line-height: 1.05;
       margin: 0 0 24px 0;
+      font-size: 60px;
+      line-height: 1.05;
       color: #38bdf8;
       text-transform: uppercase;
-      letter-spacing: -1px;
     }
 
-    .hero .lead {
-      font-size: 28px;
-      line-height: 1.45;
-      max-width: 950px;
-      margin: 0 auto 24px auto;
+    .hero p {
+      max-width: 900px;
+      margin: 0 auto 22px auto;
+      font-size: 24px;
+      line-height: 1.6;
       color: #e2e8f0;
     }
 
-    .hero .sublead {
-      font-size: 22px;
-      line-height: 1.6;
-      max-width: 950px;
-      margin: 0 auto 20px auto;
-      color: #cbd5e1;
-    }
-
-    .hero .emphasis {
-      font-size: 22px;
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 0 auto 20px auto;
-      color: #f8fafc;
+    .hero .strong {
+      color: #ffffff;
       font-weight: bold;
     }
 
-    .hero .status {
-      font-size: 20px;
-      line-height: 1.5;
+    .status {
       color: #7dd3fc;
-      margin-top: 20px;
+      font-size: 20px;
+      margin-top: 10px;
     }
 
     .buttons {
-      margin-top: 36px;
+      margin-top: 34px;
       display: flex;
       justify-content: center;
       gap: 16px;
@@ -82,10 +68,10 @@
       padding: 16px 28px;
       border-radius: 10px;
       text-decoration: none;
-      font-weight: bold;
       font-size: 18px;
-      transition: 0.2s ease;
+      font-weight: bold;
       border: 2px solid #38bdf8;
+      transition: 0.2s ease;
     }
 
     .btn-primary {
@@ -95,13 +81,13 @@
 
     .btn-secondary {
       background: transparent;
-      color: white;
+      color: #ffffff;
     }
 
     .btn-whatsapp {
-      background: #22c55e;
-      border-color: #22c55e;
-      color: white;
+      background: #25D366;
+      border-color: #25D366;
+      color: #ffffff;
     }
 
     .section {
@@ -109,23 +95,21 @@
     }
 
     .section h2 {
-      font-size: 42px;
       margin: 0 0 20px 0;
+      font-size: 40px;
       color: #7dd3fc;
     }
 
     .section p {
+      margin: 0 0 20px 0;
       font-size: 22px;
       line-height: 1.7;
       color: #e2e8f0;
-      margin: 0 0 24px 0;
     }
 
-    .market-box,
-    .position-box,
-    .closing-box {
+    .box {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 18px;
       padding: 28px;
       margin-top: 24px;
@@ -142,7 +126,7 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 18px;
-      padding: 26px;
+      padding: 24px;
     }
 
     .card h3 {
@@ -158,15 +142,16 @@
       color: #e2e8f0;
     }
 
-    .bullet-list {
-      margin: 18px 0 0 0;
+    ul {
+      margin: 20px 0 0 0;
       padding-left: 24px;
+      text-align: left;
     }
 
-    .bullet-list li {
+    li {
+      margin-bottom: 10px;
       font-size: 21px;
       line-height: 1.7;
-      margin-bottom: 10px;
       color: #e2e8f0;
     }
 
@@ -179,27 +164,18 @@
 
     @media (max-width: 900px) {
       .hero h1 {
-        font-size: 50px;
+        font-size: 46px;
       }
 
-      .hero .lead {
-        font-size: 24px;
-      }
-
-      .hero .sublead,
-      .hero .emphasis,
+      .hero p,
       .section p,
-      .bullet-list li,
+      li,
       .card p {
-        font-size: 20px;
+        font-size: 19px;
       }
 
       .grid {
         grid-template-columns: 1fr;
-      }
-
-      .section h2 {
-        font-size: 36px;
       }
     }
 
@@ -210,18 +186,11 @@
 
       .hero h1 {
         font-size: 34px;
-        line-height: 1.1;
       }
 
-      .hero .lead {
-        font-size: 18px;
-      }
-
-      .hero .sublead,
-      .hero .emphasis,
-      .hero .status,
+      .hero p,
       .section p,
-      .bullet-list li,
+      li,
       .card p {
         font-size: 16px;
         line-height: 1.65;
@@ -249,19 +218,20 @@
   </style>
 </head>
 <body>
+
   <section class="hero">
     <div class="container">
       <h1>SMART HYBRID BUNKER (SHB)</h1>
 
-      <p class="lead">
+      <p>
         Infraestructura crítica diseñada para capturar capital en el mercado de mitigación de desastres.
       </p>
 
-      <p class="sublead">
+      <p>
         Unidad autónoma de protección enfocada en preservar vidas, activos y continuidad operativa en escenarios extremos.
       </p>
 
-      <p class="emphasis">
+      <p class="strong">
         Esto no es una idea. Es una solución alineada con un mercado que ya tiene financiamiento activo.
       </p>
 
@@ -272,7 +242,7 @@
       <div class="buttons">
         <a href="#" class="btn btn-primary">Invertir en el proyecto</a>
         <a href="#" class="btn btn-secondary">Acceder al pitch</a>
-        <a href="https://wa.me/17863320066text=Estoy%20interesado%20en%20el%20proyecto%20SHB" target="_blank" class="btn btn-whatsapp">Hablar directamente ahora</a>
+        <a href="https://wa.me/17863320066" target="_blank" class="btn btn-whatsapp">Hablar directamente ahora</a>
       </div>
     </div>
   </section>
@@ -280,18 +250,15 @@
   <section class="section">
     <div class="container">
       <h2>El mercado ya existe</h2>
-
-      <div class="market-box">
+      <div class="box">
         <p>
-          SHB se posiciona dentro del sector de infraestructura resiliente, donde gobiernos, aseguradoras y sector privado ya están destinando miles de millones de dólares en prevención, mitigación y protección avanzada.
+          SHB se posiciona dentro del sector de infraestructura resiliente, donde gobiernos, aseguradoras y sector privado ya están destinando capital a prevención, mitigación y protección avanzada.
         </p>
-
-        <ul class="bullet-list">
-          <li>Financiamiento activo en resiliencia, disaster recovery y protección de infraestructura.</li>
+        <ul>
+          <li>Financiamiento activo en resiliencia y disaster recovery.</li>
           <li>Presupuesto público y privado ya asignado.</li>
           <li>Necesidad inmediata de soluciones implementables.</li>
         </ul>
-
         <p>
           El problema no es el dinero. El problema es la falta de soluciones listas para capturarlo.
         </p>
@@ -302,7 +269,6 @@
   <section class="section">
     <div class="container">
       <h2>Propuesta de valor</h2>
-
       <div class="grid">
         <div class="card">
           <h3>Protección real</h3>
@@ -310,18 +276,16 @@
             Diseñado para operar en entornos de alto riesgo, bajo condiciones extremas, donde las soluciones tradicionales pierden efectividad.
           </p>
         </div>
-
         <div class="card">
           <h3>Escalabilidad comercial</h3>
           <p>
             Estructura replicable con potencial en mercados institucionales, corporativos y residenciales de alto valor.
           </p>
         </div>
-
         <div class="card">
           <h3>Narrativa financiable</h3>
           <p>
-            Alineado con programas de mitigación, resiliencia y protección donde ya existe inversión pública y privada disponible.
+            Alineado con programas de mitigación, resiliencia y protección donde ya existe inversión disponible.
           </p>
         </div>
       </div>
@@ -331,16 +295,13 @@
   <section class="section">
     <div class="container">
       <h2>Posicionamiento estratégico</h2>
-
-      <div class="position-box">
+      <div class="box">
         <p>
           SHB no compite en construcción. SHB se posiciona como un activo estratégico dentro del ecosistema de infraestructura resiliente.
         </p>
-
         <p>
           No se trata solo de construir unidades. Se trata de capturar una porción de un mercado que ya está activo.
         </p>
-
         <p>
           Estamos desarrollando un activo replicable, escalable y comercializable, diseñado para integrarse en mercados donde el financiamiento ya existe.
         </p>
@@ -351,11 +312,9 @@
   <section class="section">
     <div class="container">
       <h2>Ventana de oportunidad</h2>
-
       <p>
         Este mercado ya está en movimiento. Los actores que se posicionen temprano capturan relaciones, acceso a funding y ventaja de ejecución.
       </p>
-
       <p>
         Los que llegan tarde compiten por contratos. Los que entran primero definen el juego.
       </p>
@@ -364,17 +323,14 @@
 
   <section class="section">
     <div class="container">
-      <div class="closing-box">
+      <div class="box">
         <h2>Fase actual</h2>
-
         <p>
           Estamos abriendo conversaciones con inversionistas y aliados estratégicos para fase de ejecución.
         </p>
-
         <p>
           El acceso en esta etapa es limitado.
         </p>
-
         <div class="buttons">
           <a href="#" class="btn btn-primary">Evaluar participación</a>
           <a href="#" class="btn btn-secondary">Solicitar acceso prioritario</a>
@@ -386,5 +342,5 @@
   <div class="footer">
     SHB Project · Smart Hybrid Bunker · Landing de inversión inicial
   </div>
+
 </body>
-</html>.
