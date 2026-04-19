@@ -11,17 +11,24 @@ font-family: Arial;
 background:#0b1a2b;
 color:white;
 margin:0;
-padding:0;
 text-align:center;
 }
 
-.container{
-padding:40px;
+.hero{
+padding:40px 20px;
 }
 
-img{
-max-width:300px;
+.logo{
+max-width:280px;
 margin-bottom:20px;
+}
+
+.main-image{
+width:90%;
+max-width:900px;
+border-radius:12px;
+margin:20px auto;
+display:block;
 }
 
 button{
@@ -67,35 +74,33 @@ margin-bottom:10px;
 border-radius:5px;
 border:none;
 }
-
-.modal button{
-width:100%;
-}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <img src="shb.jpg">
-    <h1>Smart Hybrid Bunker</h1>
-    <p>Unidad de protección contra huracanes e inundaciones</p>
+<div class="hero">
+<img src="logo-shb.jpg" class="logo">
 
-    <button onclick="openModal()">Conectar</button>
+<h1>Smart Hybrid Bunker</h1>
+<p>Protección real contra huracanes e inundaciones</p>
+
+<img src="shb.jpg" class="main-image">
+
+<button onclick="openModal()">Solicitar Información</button>
 </div>
 
-<!-- MODAL -->
 <div class="modal" id="leadModal">
-    <div class="modal-content">
-        <h2>Contacto</h2>
+<div class="modal-content">
+<h2>Contacto</h2>
 
-        <input type="text" id="leadName" placeholder="Nombre">
-        <input type="email" id="leadEmail" placeholder="Email">
-        <input type="text" id="leadAmount" placeholder="Monto / interés">
-        <textarea id="leadMessage" placeholder="Mensaje"></textarea>
+<input type="text" id="leadName" placeholder="Nombre">
+<input type="email" id="leadEmail" placeholder="Email">
+<input type="text" id="leadAmount" placeholder="Monto / interés">
+<textarea id="leadMessage" placeholder="Mensaje"></textarea>
 
-        <button onclick="submitLead()">Enviar</button>
-    </div>
+<button onclick="submitLead()">Enviar y abrir WhatsApp</button>
+</div>
 </div>
 
 <script>
@@ -128,6 +133,7 @@ alert("Completa todos los campos");
 return;
 }
 
+// guardar
 try{
 await fetch(SCRIPT_URL,{
 method:"POST",
@@ -136,6 +142,7 @@ body:JSON.stringify(data)
 });
 }catch(e){}
 
+// whatsapp
 const text = `Nuevo lead SHB
 Nombre: ${data.nombre}
 Email: ${data.email}
