@@ -1,684 +1,246 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHB | Acceso a Inversión</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHB Project | Acceso a Inversión</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background: linear-gradient(180deg,#050b16,#0f172a);
+color: #fff;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #050b16, #0f172a);
-      color: #ffffff;
-    }
+.container {
+max-width: 1100px;
+margin: auto;
+padding: 40px 24px;
+}
 
-    .container {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+.hero {
+padding: 60px 0 40px;
+text-align: center;
+}
 
-    .hero {
-      padding: 30px 0 70px 0;
-    }
+.hero h1 {
+font-size: 38px;
+margin-bottom: 10px;
+}
 
-    .hero-image {
-      width: 100%;
-      display: block;
-      border-radius: 20px;
-      box-shadow: 0 24px 65px rgba(0, 0, 0, 0.42);
-      margin-bottom: 34px;
-    }
+.hero p {
+color: #9aa4b2;
+max-width: 600px;
+margin: auto;
+}
 
-    .hero-copy {
-      max-width: 980px;
-      margin: 0 auto;
-      text-align: center;
-    }
+.cta {
+margin-top: 30px;
+}
 
-    .hero h1 {
-      margin: 0 0 18px 0;
-      font-size: 60px;
-      line-height: 1.02;
-      color: #38bdf8;
-      text-transform: uppercase;
-      letter-spacing: -0.5px;
-    }
+.cta button {
+background: #00d4ff;
+color: #000;
+padding: 16px 28px;
+border: none;
+font-weight: bold;
+cursor: pointer;
+border-radius: 8px;
+}
 
-    .hero .subhead {
-      margin: 0 auto 18px auto;
-      max-width: 950px;
-      font-size: 26px;
-      line-height: 1.58;
-      color: #e2e8f0;
-    }
+.section {
+margin-top: 60px;
+text-align: center;
+}
 
-    .hero .strong {
-      margin: 0 auto 16px auto;
-      max-width: 930px;
-      font-size: 24px;
-      line-height: 1.6;
-      color: #ffffff;
-      font-weight: bold;
-    }
+.section h2 {
+margin-bottom: 10px;
+}
 
-    .hero .status {
-      margin: 0 auto;
-      max-width: 900px;
-      font-size: 20px;
-      line-height: 1.6;
-      color: #7dd3fc;
-    }
+.section p {
+color: #9aa4b2;
+max-width: 700px;
+margin: auto;
+}
 
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+.footer {
+margin-top: 80px;
+text-align: center;
+color: #6b7280;
+font-size: 14px;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 16px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      border: 2px solid #38bdf8;
-      cursor: pointer;
-      transition: 0.2s ease;
-      background: transparent;
-      color: #ffffff;
-    }
+/* MODAL */
 
-    .btn-primary {
-      background: #38bdf8;
-      color: #081120;
-    }
+.modal {
+display: none;
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.85);
+justify-content: center;
+align-items: center;
+z-index: 9999;
+padding: 20px;
+}
 
-    .btn-whatsapp {
-      background: #25D366;
-      border-color: #25D366;
-      color: #ffffff;
-    }
+.modal.show {
+display: flex;
+}
 
-    .btn-priority {
-      background: #0ea5e9;
-      border-color: #0ea5e9;
-      color: #ffffff;
-    }
+.modal-content {
+background: #0f172a;
+padding: 25px;
+border-radius: 12px;
+width: 100%;
+max-width: 420px;
+}
 
-    .section {
-      padding: 58px 0;
-    }
+.modal-content h2 {
+margin-top: 0;
+}
 
-    .section h2 {
-      margin: 0 0 18px 0;
-      font-size: 42px;
-      color: #7dd3fc;
-    }
+.modal-content input,
+.modal-content textarea {
+width: 100%;
+padding: 12px;
+margin-top: 10px;
+border-radius: 6px;
+border: none;
+}
 
-    .section p {
-      margin: 0 0 18px 0;
-      font-size: 22px;
-      line-height: 1.72;
-      color: #e2e8f0;
-    }
+.modal-actions {
+margin-top: 15px;
+display: flex;
+gap: 10px;
+}
 
-    .box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 30px;
-      margin-top: 20px;
-      box-shadow: 0 12px 34px rgba(0,0,0,0.16);
-    }
+.modal-btn {
+flex: 1;
+padding: 12px;
+border: none;
+cursor: pointer;
+border-radius: 6px;
+font-weight: bold;
+}
 
-    .money-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 24px;
-    }
+.primary {
+background: #00d4ff;
+color: #000;
+}
 
-    .money-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 24px;
-    }
-
-    .money-card .number {
-      display: block;
-      font-size: 36px;
-      font-weight: bold;
-      color: #38bdf8;
-      margin-bottom: 8px;
-    }
-
-    .money-card p {
-      margin: 0;
-      font-size: 19px;
-      line-height: 1.6;
-      color: #e2e8f0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 24px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    }
-
-    .card img {
-      width: 100%;
-      display: block;
-      border-radius: 12px;
-      margin-bottom: 16px;
-    }
-
-    .card h3 {
-      margin: 0 0 12px 0;
-      font-size: 28px;
-      color: #38bdf8;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 20px;
-      line-height: 1.62;
-      color: #e2e8f0;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .feature-panel {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    }
-
-    .feature-panel img {
-      width: 100%;
-      display: block;
-      border-radius: 14px;
-      margin-bottom: 16px;
-    }
-
-    .feature-panel h3 {
-      margin: 0 0 12px 0;
-      font-size: 30px;
-      color: #38bdf8;
-    }
-
-    .feature-panel p {
-      margin: 0;
-      font-size: 20px;
-      line-height: 1.65;
-      color: #e2e8f0;
-    }
-
-    ul {
-      margin: 18px 0 0 0;
-      padding-left: 24px;
-    }
-
-    li {
-      margin-bottom: 10px;
-      font-size: 21px;
-      line-height: 1.7;
-      color: #e2e8f0;
-    }
-
-    .final-cta {
-      text-align: center;
-    }
-
-    .final-cta .box p {
-      max-width: 920px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 38px 20px 60px 20px;
-      color: #94a3b8;
-      font-size: 18px;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 9999;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-content {
-      width: 100%;
-      max-width: 460px;
-      background: #0f172a;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.42);
-    }
-
-    .modal-content h2 {
-      margin: 0 0 10px 0;
-      font-size: 30px;
-      color: #38bdf8;
-    }
-
-    .modal-content p {
-      margin: 0 0 16px 0;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #cbd5e1;
-    }
-
-    .modal-content input,
-    .modal-content textarea {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #081120;
-      color: #ffffff;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .modal-content textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
-
-    .modal-btn {
-      flex: 1;
-      min-width: 140px;
-      padding: 14px 16px;
-      border: none;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .modal-btn-primary {
-      background: #25D366;
-      color: #ffffff;
-    }
-
-    .modal-btn-secondary {
-      background: transparent;
-      color: #ffffff;
-      border: 2px solid #38bdf8;
-    }
-
-    .note {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #94a3b8;
-    }
-
-    @media (max-width: 950px) {
-      .grid,
-      .two-col,
-      .money-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 46px;
-      }
-
-      .hero .subhead,
-      .hero .strong,
-      .section p,
-      .card p,
-      .feature-panel p,
-      .money-card p,
-      li {
-        font-size: 19px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero {
-        padding: 26px 0 42px 0;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .hero .subhead,
-      .hero .strong,
-      .hero .status,
-      .section p,
-      .card p,
-      .feature-panel p,
-      .money-card p,
-      li {
-        font-size: 16px;
-        line-height: 1.65;
-      }
-
-      .section h2 {
-        font-size: 28px;
-      }
-
-      .money-card .number {
-        font-size: 30px;
-      }
-
-      .card h3,
-      .feature-panel h3 {
-        font-size: 22px;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 340px;
-        text-align: center;
-      }
-
-      .buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+.secondary {
+background: #1f2937;
+color: #fff;
+}
+</style>
 </head>
+
 <body>
 
-  <section class="hero">
-    <div class="container">
-      <img src="hero-shb.jpg" alt="Unidad Autónoma de Protección SHB" class="hero-image" />
+<div class="container">
 
-      <div class="hero-copy">
-        <h1>SMART HYBRID BUNKER (SHB)</h1>
+<div class="hero">
+<h1>Smart Hybrid Bunker</h1>
+<p>Infraestructura estratégica diseñada para resiliencia, protección y continuidad operativa en escenarios de crisis.</p>
 
-        <p class="subhead">
-          Infraestructura crítica diseñada para capturar capital en el mercado de mitigación de desastres y resiliencia operativa.
-        </p>
+<div class="cta">
+<button onclick="openModal()">Acceder a oportunidad de inversión</button>
+</div>
+</div>
 
-        <p class="subhead">
-          No estamos creando demanda. Estamos entrando en un mercado donde el financiamiento ya existe y donde entrar temprano crea ventaja de ejecución.
-        </p>
+<div class="section">
+<h2>Estado del proyecto</h2>
+<p>Actualmente en fase de posicionamiento estratégico y estructuración de relaciones con capital privado.</p>
+</div>
 
-        <p class="strong">
-          Esto no es un proyecto. Es una posición dentro de un mercado que ya está pagando.
-        </p>
+<div class="section">
+<h2>Acceso restringido</h2>
+<p>Las oportunidades de entrada temprana se gestionan bajo contacto directo y evaluación inicial.</p>
+</div>
 
-        <p class="status">
-          Actualmente en fase de posicionamiento estratégico y apertura de relaciones con inversionistas y aliados clave.
-        </p>
+<div class="footer">
+SHB Project · Smart Hybrid Bunker · Acceso a inversión privada
+</div>
 
-        <div class="buttons">
-          <button class="btn btn-primary" onclick="openModal()">Acceder a oportunidad de inversión</button>
-          <a href="https://wa.me/17863320066" target="_blank" class="btn btn-whatsapp">Contacto directo</a>
-        </div>
-      </div>
-    </div>
-  </section>
+</div>
 
-  <section class="section">
-    <div class="container">
-      <h2>El dinero ya está asignado</h2>
+<div id="leadModal" class="modal">
+<div class="modal-content">
 
-      <div class="money-grid">
-        <div class="money-card">
-          <span class="number">+USD 300.000 MM</span>
-          <p>Daños globales anuales por desastres naturales y eventos extremos.</p>
-        </div>
+<h2>Acceder a oportunidad</h2>
 
-        <div class="money-card">
-          <span class="number">+USD 50.000 MM</span>
-          <p>Pérdidas anuales en Estados Unidos asociadas a desastres y eventos climáticos severos.</p>
-        </div>
+<input id="leadName" placeholder="Nombre completo">
+<input id="leadEmail" placeholder="Correo electrónico">
+<input id="leadAmount" placeholder="Monto estimado de inversión (USD)">
+<textarea id="leadMessage" placeholder="Mensaje (opcional)"></textarea>
 
-        <div class="money-card">
-          <span class="number">Decenas de miles de millones</span>
-          <p>Presupuestos de mitigación, respuesta, disaster recovery y protección de infraestructura.</p>
-        </div>
+<div class="modal-actions">
+<button class="modal-btn primary" onclick="submitForm()">Continuar</button>
+<button class="modal-btn secondary" onclick="closeModal()">Cerrar</button>
+</div>
 
-        <div class="money-card">
-          <span class="number">Funding creciente</span>
-          <p>Gobiernos, aseguradoras y sector privado ya están incrementando gasto en resiliencia operativa.</p>
-        </div>
-      </div>
+</div>
+</div>
 
-      <div class="box">
-        <p>
-          El problema no es la falta de dinero. El problema es quién tiene una solución lista para capturarlo.
-        </p>
-      </div>
-    </div>
-  </section>
+<script>
 
-  <section class="section">
-    <div class="container">
-      <h2>Tesis de inversión</h2>
+const SCRIPT_URL = "PEGA_AQUI_TU_URL_REAL";
 
-      <div class="box">
-        <p><strong>Cómo se captura el dinero:</strong> posicionando SHB dentro de programas financiados de mitigación, protección crítica, continuidad operativa y respuesta frente a eventos extremos.</p>
+function openModal(){
+document.getElementById("leadModal").classList.add("show");
+}
 
-        <p><strong>Quién paga:</strong> gobierno, aseguradoras, sector privado, desarrolladores, operadores de infraestructura y actores expuestos a riesgo operativo y patrimonial.</p>
+function closeModal(){
+document.getElementById("leadModal").classList.remove("show");
+}
 
-        <p><strong>Por qué este activo es escalable:</strong> porque puede replicarse por unidad, adaptarse a distintos mercados y entrar en ecosistemas donde ya existe presupuesto asignado y necesidad activa.</p>
+function submitForm(){
 
-        <p>
-          SHB no compite con construcción tradicional. SHB se posiciona como un activo estratégico dentro del ecosistema de infraestructura resiliente, donde ya existe financiamiento institucional y demanda creciente.
-        </p>
-      </div>
-    </div>
-  </section>
+const nombre = document.getElementById("leadName").value.trim();
+const email = document.getElementById("leadEmail").value.trim();
+const inversion = document.getElementById("leadAmount").value.trim();
+const mensaje = document.getElementById("leadMessage").value.trim();
 
-  <section class="section">
-    <div class="container">
-      <h2>Propuesta de valor</h2>
+if(!nombre || !email || !inversion){
+alert("Completa los campos obligatorios");
+return;
+}
 
-      <div class="box">
-        <p>
-          SHB está planteado como una solución implementable, escalable y comercializable. No como un experimento. No como una idea conceptual. Su valor está en que puede entrar donde ya se está asignando capital.
-        </p>
+const data = { nombre,email,inversion,mensaje };
 
-        <p>
-          No se trata solo de fabricar unidades. Se trata de ocupar una posición de ejecución dentro de un mercado que premia readiness, rapidez de despliegue y protección tangible.
-        </p>
-      </div>
-    </div>
-  </section>
+fetch(SCRIPT_URL,{
+method:"POST",
+body: JSON.stringify(data),
+headers:{ "Content-Type":"application/json" }
+})
+.then(r=>r.json())
+.then(()=>{
+enviarWhatsApp(nombre,email,inversion,mensaje);
+limpiar();
+closeModal();
+})
+.catch(()=>{
+alert("Error enviando datos");
+});
 
-  <section class="section">
-    <div class="container">
-      <h2>Capacidades del sistema</h2>
+}
 
-      <div class="grid">
-        <div class="card">
-          <img src="shb-structure.jpg" alt="Estructura reforzada SHB" />
-          <h3>Estructura orientada a cumplimiento</h3>
-          <p>
-            Arquitectura preparada para responder a criterios exigidos en entornos financiados por programas de mitigación y protección de infraestructura.
-          </p>
-        </div>
+function enviarWhatsApp(nombre,email,inversion,mensaje){
+const text = `Nombre: ${nombre}%0AEmail: ${email}%0AInversion: ${inversion}%0AMensaje: ${mensaje}`;
+window.open(`https://wa.me/17863320667?text=${text}`,"_blank");
+}
 
-        <div class="card">
-          <img src="shb-interior.jpg" alt="Interior del SHB" />
-          <h3>Habitabilidad con sentido comercial</h3>
-          <p>
-            Configuración interior que traduce protección en usabilidad inmediata, reduciendo fricción entre necesidad crítica y solución implementable.
-          </p>
-        </div>
+function limpiar(){
+document.getElementById("leadName").value="";
+document.getElementById("leadEmail").value="";
+document.getElementById("leadAmount").value="";
+document.getElementById("leadMessage").value="";
+}
 
-        <div class="card">
-          <img src="shb-install.jpg" alt="Instalación del SHB" />
-          <h3>Despliegue rápido y replicable</h3>
-          <p>
-            Capacidad de instalación eficiente, con lógica modular y potencial de escalamiento por mercado, contrato o necesidad territorial.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Autoridad técnica</h2>
-
-      <div class="two-col">
-        <div class="feature-panel">
-          <img src="shb-structure.jpg" alt="Vista estructural SHB" />
-          <h3>Criterio de ingeniería</h3>
-          <p>
-            El producto se presenta bajo criterios de ingeniería estructural para escenarios de carga extrema, con enfoque en estabilidad, anclaje y despliegue modular.
-          </p>
-        </div>
-
-        <div class="feature-panel">
-          <img src="shb-interior.jpg" alt="Vista interior SHB" />
-          <h3>Readiness del activo</h3>
-          <p>
-            La percepción ya no es “concepto”. La percepción es readiness comercial, capacidad de ejecución y lógica de integración en mercados exigentes.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Ventaja de entrada</h2>
-      <p>
-        Este mercado ya está en movimiento. Entrar ahora no significa descubrir una oportunidad. Significa posicionarse antes de que la ventaja de ejecución se cierre.
-      </p>
-      <p>
-        Los actores que se mueven temprano capturan relaciones, acceso a funding y control narrativo. Los que llegan tarde compiten por espacio.
-      </p>
-    </div>
-  </section>
-
-  <section class="section final-cta">
-    <div class="container">
-      <div class="box">
-        <h2>Fase actual</h2>
-        <p>
-          Actualmente en fase de posicionamiento estratégico y apertura de relaciones con inversionistas y aliados clave.
-        </p>
-        <p>
-          El acceso en esta etapa es limitado. Las oportunidades de entrada temprana se manejan por contacto directo.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">
-    SHB Project · Smart Hybrid Bunker · Landing de acceso a inversión
-  </div>
-
-  <div id="leadModal" class="modal">
-    <div class="modal-content">
-      <h2>Acceder a oportunidad de inversión</h2>
-      <p>
-        Complete estos datos para continuar a contacto directo.
-      </p>
-
-      <input type="text" id="leadName" placeholder="Nombre completo" />
-      <input type="email" id="leadEmail" placeholder="Correo electrónico" />
-      <input type="text" id="leadAmount" placeholder="Monto estimado de inversión (USD)" />
-      <textarea id="leadMessage" placeholder="Mensaje breve (opcional)"></textarea>
-
-      <div class="modal-actions">
-        <button class="modal-btn modal-btn-primary" onclick="sendToWhatsApp()">Continuar a contacto directo</button>
-        <button class="modal-btn modal-btn-secondary" onclick="closeModal()">Cerrar</button>
-      </div>
-
-      <div class="note">
-        El acceso en esta fase se canaliza por contacto directo y evaluación inicial.
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function openModal() {
-      document.getElementById('leadModal').classList.add('show');
-    }
-
-    function closeModal() {
-      document.getElementById('leadModal').classList.remove('show');
-    }
-
-    function sendToWhatsApp() {
-      const name = document.getElementById('leadName').value.trim();
-      const email = document.getElementById('leadEmail').value.trim();
-      const amount = document.getElementById('leadAmount').value.trim();
-      const extra = document.getElementById('leadMessage').value.trim();
-
-      if (!name || !email) {
-        alert('Complete nombre y correo para continuar.');
-        return;
-      }
-
-      const text =
-        'Interesado en oportunidad de inversión SHB.%0A' +
-        'Nombre: ' + encodeURIComponent(name) + '%0A' +
-        'Correo: ' + encodeURIComponent(email) + '%0A' +
-        'Monto estimado: ' + encodeURIComponent(amount || 'No indicado') + '%0A' +
-        'Mensaje: ' + encodeURIComponent(extra || 'Sin mensaje adicional');
-
-      window.open('https://wa.me/17863320066?text=' + text, '_blank');
-    }
-
-    window.onclick = function(event) {
-      if (event.target === document.getElementById('leadModal')) {
-        closeModal();
-      }
-    };
-  </script>
+</script>
 
 </body>
-</html> <!--  update  -->
+</html>
