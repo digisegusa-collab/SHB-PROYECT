@@ -3,30 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHB | Infraestructura Resiliente</title>
-<meta name="description" content="Infraestructura crítica diseñada para capturar capital en mitigación de desastres, resiliencia operativa y protección de activos.">
+<title>SHB Project | Infraestructura Resiliente</title>
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#04080f;color:#fff}
+body{margin:0;font-family:Arial;background:#050b16;color:white}
 .container{max-width:1200px;margin:auto;padding:60px 20px}
-h1,h2,h3{margin-bottom:12px}
-p{color:#9aa4b2;line-height:1.7;font-size:18px}
-.section{margin-top:80px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;margin-top:30px}
-.card{background:#0f172a;padding:25px;border-radius:14px;text-align:left}
-.cta{margin-top:30px}
-.cta button{background:#00d4ff;color:#000;padding:18px 30px;border:none;font-weight:bold;border-radius:8px;font-size:16px;cursor:pointer}
-.hero{padding-top:60px}
-.hero h1{font-size:52px}
-.badge{background:#0ea5e9;padding:6px 12px;border-radius:20px;font-size:12px;display:inline-block;margin-bottom:10px}
-.footer{margin-top:100px;text-align:center;color:#6b7280;font-size:14px}
 
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:9999;padding:20px}
+h1{font-size:46px;margin-bottom:20px}
+h2{margin-top:60px}
+p{color:#9aa4b2;line-height:1.7}
+
+.section{text-align:center}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+.card{
+background:#0f172a;
+padding:25px;
+border-radius:12px;
+text-align:left;
+}
+
+.cta button{
+background:#00d4ff;
+color:black;
+padding:18px 30px;
+border:none;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
 .modal.show{display:flex}
-.modal-content{background:#0f172a;padding:30px;border-radius:12px;width:100%;max-width:480px}
-.modal-content input,.modal-content textarea{width:100%;padding:12px;margin-top:10px;border:none;border-radius:6px}
-.modal-btn{margin-top:10px;padding:12px;border:none;cursor:pointer;border-radius:6px}
+
+.modal-content{
+background:#0f172a;
+padding:25px;
+border-radius:10px;
+width:100%;
+max-width:450px;
+}
+
+.modal-content input,
+.modal-content textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:6px;
+}
+
+.modal-btn{
+margin-top:10px;
+padding:12px;
+border:none;
+cursor:pointer;
+border-radius:6px;
+width:100%;
+}
+
 .primary{background:#00d4ff;color:black}
 .secondary{background:#333;color:white}
 </style>
@@ -36,96 +87,115 @@ p{color:#9aa4b2;line-height:1.7;font-size:18px}
 
 <div class="container">
 
-<div class="hero section">
-<div class="badge">SHB | Infraestructura Resiliente</div>
+<div class="section">
 <h1>Infraestructura diseñada para capturar capital existente</h1>
+
 <p>No estamos creando demanda. Estamos entrando en un mercado donde el financiamiento ya existe.</p>
 
 <p><strong>Esto no es un concepto. Es una posición dentro de un mercado que ya está pagando.</strong></p>
 
 <div class="cta">
-<button onclick="openModal()">Acceso prioritario a inversión</button>
+<button onclick="openModal()">Acceso prioritario</button>
 </div>
 </div>
 
-<div class="section">
 <h2>El dinero ya está asignado</h2>
-<p>El problema no es la falta de capital. El problema es quién tiene una solución ejecutable.</p>
-
 <div class="grid">
-<div class="card"><h3>$300B+</h3><p>Daños globales por desastres.</p></div>
+<div class="card"><h3>$300B+</h3><p>Daños globales anuales.</p></div>
 <div class="card"><h3>$50B+</h3><p>Pérdidas en EE.UU.</p></div>
 <div class="card"><h3>FEMA</h3><p>Programas activos.</p></div>
 <div class="card"><h3>Insurance</h3><p>Capital privado.</p></div>
 </div>
-</div>
 
-<div class="section">
 <h2>Tesis de inversión</h2>
 <div class="grid">
-<div class="card"><h3>Captura</h3><p>Entrada en contratos financiados y mitigación.</p></div>
-<div class="card"><h3>Pagadores</h3><p>Gobierno, aseguradoras, privado.</p></div>
-<div class="card"><h3>Escalabilidad</h3><p>Modelo replicable por regiones.</p></div>
-</div>
+<div class="card"><h3>Captura</h3><p>Entrada en contratos financiados.</p></div>
+<div class="card"><h3>Pagadores</h3><p>Gobierno, aseguradoras.</p></div>
+<div class="card"><h3>Escala</h3><p>Modelo replicable.</p></div>
 </div>
 
-<div class="section">
 <h2>Base técnica</h2>
-<p>Diseñado bajo criterios reales de ingeniería estructural.</p>
 <div class="grid">
-<div class="card"><h3>Viento</h3><p>Diseño ASCE para huracanes.</p></div>
-<div class="card"><h3>Inundación</h3><p>Protección BFE / FEMA.</p></div>
-<div class="card"><h3>Anclaje</h3><p>Sistemas estructurales.</p></div>
-<div class="card"><h3>Continuidad</h3><p>Operación en crisis.</p></div>
-</div>
-</div>
-
-<div class="section">
-<h2>Posicionamiento</h2>
-<p>SHB es un activo dentro del ecosistema de resiliencia financiado.</p>
+<div class="card"><h3>Viento</h3><p>Diseño ASCE.</p></div>
+<div class="card"><h3>Inundación</h3><p>BFE / FEMA.</p></div>
+<div class="card"><h3>Anclaje</h3><p>Estructural.</p></div>
+<div class="card"><h3>Continuidad</h3><p>Operativa.</p></div>
 </div>
 
-<div class="section">
 <h2>Fase actual</h2>
 <p>Acceso limitado a inversionistas estratégicos.</p>
-</div>
 
 </div>
 
 <div id="leadModal" class="modal">
 <div class="modal-content">
+
 <h2>Acceso a inversión</h2>
-<input id="leadName" placeholder="Nombre completo">
-<input id="leadEmail" placeholder="Correo electrónico">
-<input id="leadAmount" placeholder="Monto USD">
+
+<input type="text" id="leadName" placeholder="Nombre completo">
+<input type="email" id="leadEmail" placeholder="Correo electrónico">
+<input type="text" id="leadAmount" placeholder="Monto USD">
 <textarea id="leadMessage" placeholder="Mensaje"></textarea>
 
 <button class="modal-btn primary" onclick="submitLead()">Continuar</button>
 <button class="modal-btn secondary" onclick="closeModal()">Cerrar</button>
+
 </div>
 </div>
 
 <script>
-const SCRIPT_URL="PEGA_AQUI_TU_URL_REAL";
-const PHONE="17863320667";
+const SCRIPT_URL = "PEGA_AQUI_TU_URL_REAL";
+const PHONE = "17863320667";
 
-function openModal(){leadModal.classList.add("show")}
-function closeModal(){leadModal.classList.remove("show")}
+function openModal(){
+document.getElementById("leadModal").classList.add("show");
+}
+
+function closeModal(){
+document.getElementById("leadModal").classList.remove("show");
+}
 
 function submitLead(){
-let n=leadName.value,e=leadEmail.value,i=leadAmount.value,m=leadMessage.value
-if(!n||!e||!i){alert("Completa los campos");return}
+
+const n = document.getElementById("leadName").value.trim();
+const e = document.getElementById("leadEmail").value.trim();
+const i = document.getElementById("leadAmount").value.trim();
+const m = document.getElementById("leadMessage").value.trim();
+
+if(!n || !e || !i){
+alert("Completa los campos obligatorios");
+return;
+}
 
 fetch(SCRIPT_URL,{
 method:"POST",
-body:JSON.stringify({nombre:n,email:e,inversion:i,mensaje:m}),
-headers:{"Content-Type":"application/json"}
-}).then(()=>sendWhatsApp(n,e,i,m))
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+nombre:n,
+email:e,
+inversion:i,
+mensaje:m
+})
+})
+.then(()=>{
+sendWhatsApp(n,e,i,m);
+})
+.catch(()=>{
+alert("Error enviando datos");
+});
+
 }
 
 function sendWhatsApp(n,e,i,m){
-let t=`Nombre:${n}%0AEmail:${e}%0AMonto:${i}%0AMensaje:${m}`
-window.open(`https://wa.me/${PHONE}?text=${t}`)
+const texto =
+"Nombre: "+n+
+"%0AEmail: "+e+
+"%0AMonto: "+i+
+"%0AMensaje: "+m;
+
+window.open("https://wa.me/"+PHONE+"?text="+texto,"_blank");
 }
 </script>
 
