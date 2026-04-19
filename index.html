@@ -1,647 +1,136 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHB Project | Smart Hybrid Bunker</title>
-<meta name="description" content="Infraestructura crítica diseñada para capturar capital en mitigación de desastres, resiliencia operativa y protección de activos.">
-
-<style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#050b16;
-color:#fff;
-line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
-.container{
-max-width:1180px;
-margin:0 auto;
-padding:0 24px;
-}
-.section{
-padding:80px 0 0;
-}
-.nav{
-position:sticky;
-top:0;
-z-index:1000;
-background:rgba(5,11,22,.92);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(255,255,255,.07);
-}
-.nav-inner{
-max-width:1180px;
-margin:0 auto;
-padding:16px 24px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-.brand{
-font-size:20px;
-font-weight:700;
-color:#38bdf8;
-}
-.nav-links{
-display:flex;
-gap:24px;
-align-items:center;
-font-size:14px;
-color:#cbd5e1;
-}
-.nav-links a:hover{
-color:#fff;
-}
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:15px 26px;
-border-radius:10px;
-border:none;
-cursor:pointer;
-font-weight:700;
-font-size:15px;
-transition:.2s ease;
-}
-.btn:hover{transform:translateY(-1px)}
-.btn-primary{
-background:#38bdf8;
-color:#081120;
-}
-.btn-secondary{
-background:transparent;
-color:#fff;
-border:1px solid rgba(255,255,255,.18);
-}
-.hero{
-padding:64px 0 40px;
-}
-.hero-shell{
-display:grid;
-grid-template-columns:1.05fr .95fr;
-gap:32px;
-align-items:center;
-background:
-radial-gradient(circle at top right, rgba(56,189,248,.10), transparent 28%),
-linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-border:1px solid rgba(255,255,255,.08);
-border-radius:24px;
-padding:40px;
-box-shadow:0 25px 70px rgba(0,0,0,.35);
-}
-.badge{
-display:inline-block;
-padding:8px 14px;
-border-radius:999px;
-font-size:12px;
-font-weight:700;
-letter-spacing:.4px;
-text-transform:uppercase;
-background:rgba(56,189,248,.10);
-border:1px solid rgba(56,189,248,.24);
-color:#bfeeff;
-margin-bottom:18px;
-}
-h1{
-margin:0 0 18px;
-font-size:54px;
-line-height:1.02;
-letter-spacing:-1px;
-text-transform:uppercase;
-}
-h1 span{color:#38bdf8}
-.lead{
-font-size:20px;
-color:#dbe4f0;
-margin:0 0 16px;
-max-width:640px;
-}
-.lead-strong{
-font-size:22px;
-font-weight:700;
-color:#fff;
-margin:22px 0 18px;
-max-width:640px;
-}
-.lead-soft{
-font-size:16px;
-color:#9ecff1;
-margin:0;
-max-width:640px;
-}
-.hero-actions{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-margin-top:28px;
-}
-.hero-card{
-background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-border:1px solid rgba(255,255,255,.08);
-border-radius:20px;
-padding:18px;
-}
-.hero-card img{
-width:100%;
-display:block;
-border-radius:14px;
-}
-.section-title{
-text-align:center;
-margin:0 0 14px;
-font-size:38px;
-color:#7dd3fc;
-}
-.section-intro{
-max-width:820px;
-margin:0 auto;
-text-align:center;
-font-size:20px;
-color:#dbe4f0;
-line-height:1.75;
-}
-.grid{
-display:grid;
-gap:18px;
-margin-top:28px;
-}
-.grid-2{
-grid-template-columns:repeat(2,minmax(0,1fr));
-}
-.grid-3{
-grid-template-columns:repeat(3,minmax(0,1fr));
-}
-.grid-4{
-grid-template-columns:repeat(4,minmax(0,1fr));
-}
-.card{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-border-radius:18px;
-padding:24px;
-}
-.card h3{
-margin:0 0 10px;
-font-size:22px;
-color:#38bdf8;
-}
-.card p{
-margin:0;
-font-size:17px;
-color:#dbe4f0;
-line-height:1.7;
-}
-.stat{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-border-radius:18px;
-padding:24px;
-}
-.stat strong{
-display:block;
-font-size:34px;
-margin-bottom:10px;
-color:#38bdf8;
-}
-.stat p{
-margin:0;
-font-size:17px;
-color:#dbe4f0;
-line-height:1.7;
-}
-.box{
-margin-top:24px;
-background:linear-gradient(135deg, rgba(56,189,248,.06), rgba(255,255,255,.03));
-border:1px solid rgba(56,189,248,.18);
-border-radius:18px;
-padding:26px;
-}
-.box p{
-margin:0 0 16px;
-font-size:18px;
-line-height:1.8;
-color:#dbe4f0;
-}
-.box p:last-child{margin-bottom:0}
-.image-block{
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:24px;
-align-items:center;
-margin-top:28px;
-}
-.image-block.reverse{
-grid-template-columns:.9fr 1.1fr;
-}
-.image-wrap{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-border-radius:20px;
-padding:14px;
-}
-.image-wrap img{
-width:100%;
-display:block;
-border-radius:14px;
-}
-.copy-block{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-border-radius:20px;
-padding:26px;
-}
-.copy-block h3{
-margin:0 0 12px;
-font-size:28px;
-color:#38bdf8;
-}
-.copy-block p{
-margin:0 0 16px;
-font-size:18px;
-line-height:1.8;
-color:#dbe4f0;
-}
-.copy-block p:last-child{margin-bottom:0}
-.clean-list{
-margin:0;
-padding-left:18px;
-}
-.clean-list li{
-margin-bottom:10px;
-font-size:17px;
-line-height:1.7;
-color:#dbe4f0;
-}
-.cta-box{
-margin-top:28px;
-text-align:center;
-background:linear-gradient(135deg, rgba(16,185,129,.08), rgba(56,189,248,.06));
-border:1px solid rgba(255,255,255,.08);
-border-radius:20px;
-padding:30px;
-}
-.cta-box p{
-margin:0 0 18px;
-font-size:18px;
-color:#dbe4f0;
-}
-.footer{
-padding:70px 20px 50px;
-text-align:center;
-color:#94a3b8;
-font-size:14px;
-}
-.footer strong{
-color:#dbe4f0;
-}
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.86);
-justify-content:center;
-align-items:center;
-z-index:9999;
-padding:18px;
-}
-.modal.show{
-display:flex;
-}
-.modal-content{
-width:100%;
-max-width:520px;
-background:#0f172a;
-border:1px solid rgba(255,255,255,.12);
-border-radius:18px;
-padding:26px;
-box-shadow:0 24px 70px rgba(0,0,0,.42);
-}
-.modal-content h3{
-margin:0 0 10px;
-font-size:30px;
-color:#38bdf8;
-}
-.modal-content p{
-margin:0 0 14px;
-font-size:15px;
-line-height:1.6;
-color:#cbd5e1;
-}
-.modal-content input,
-.modal-content textarea{
-width:100%;
-padding:14px;
-margin-bottom:12px;
-border-radius:10px;
-border:1px solid rgba(255,255,255,.12);
-background:#081120;
-color:#fff;
-font-size:15px;
-outline:none;
-}
-.modal-content textarea{
-min-height:90px;
-resize:vertical;
-}
-.modal-actions{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:6px;
-}
-.modal-btn{
-flex:1;
-min-width:160px;
-padding:14px 16px;
-border:none;
-border-radius:10px;
-font-size:15px;
-font-weight:700;
-cursor:pointer;
-}
-.modal-btn-primary{
-background:#25D366;
-color:#fff;
-}
-.modal-btn-secondary{
-background:transparent;
-color:#fff;
-border:2px solid #38bdf8;
-}
-@media (max-width:1024px){
-.hero-shell,
-.image-block,
-.image-block.reverse,
-.grid-2,
-.grid-3,
-.grid-4{
-grid-template-columns:1fr;
-}
-h1{font-size:40px}
-.lead,.lead-strong,.section-intro,.copy-block p,.box p{font-size:18px}
-}
-@media (max-width:640px){
-.container{padding:0 18px}
-.hero-shell{padding:24px}
-.nav-inner{padding:14px 18px}
-.nav-links{display:none}
-h1{font-size:32px}
-.section-title{font-size:30px}
-.hero-actions{flex-direction:column}
-.btn{width:100%}
-}
-</style>
-</head>
-<body>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="brand">SHB Project</div>
-    <div class="nav-links">
-      <a href="#mercado">Mercado</a>
-      <a href="#tesis">Tesis</a>
-      <a href="#sistema">Sistema</a>
-      <a href="#fase">Fase</a>
-      <button class="btn btn-primary" onclick="openModal()">Acceso prioritario</button>
-    </div>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-shell">
-      <div>
-        <div class="badge">SHB | Smart Hybrid Bunker</div>
-        <h1>Infraestructura diseñada para <span>capturar capital</span> existente</h1>
-        <p class="lead">
-          No estamos creando demanda. Estamos entrando en un mercado donde el financiamiento ya existe y donde la diferencia la marca quién tiene una solución lista para ejecutarse.
-        </p>
-        <p class="lead">
-          SHB se posiciona como infraestructura resiliente, protegible, escalable y comercializable dentro del ecosistema de mitigación, continuidad operativa y protección de activos críticos.
-        </p>
-        <p class="lead-strong">
-          Esto no es un concepto. Es una posición dentro de un mercado que ya está pagando.
-        </p>
-        <p class="lead-soft">
-          Actualmente en fase de posicionamiento estratégico, validación técnica, estructuración de ejecución y apertura de relaciones con inversionistas y aliados clave.
-        </p>
-        <div class="hero-actions">
-          <button class="btn btn-primary" onclick="openModal()">Solicitar acceso prioritario</button>
-          <button class="btn btn-secondary" onclick="document.getElementById('tesis').scrollIntoView({behavior:'smooth'})">Ver tesis de inversión</button>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <img src="hero-shb.jpg" alt="Smart Hybrid Bunker">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="mercado">
-  <div class="container">
-    <h2 class="section-title">El dinero ya está asignado</h2>
-    <p class="section-intro">
-      El problema no es la ausencia de capital. El problema real es quién tiene una solución estructurada, técnica y ejecutable para capturarlo dentro de un mercado con funding ya activado.
-    </p>
-
-    <div class="grid grid-2">
-      <div class="stat">
-        <strong>+USD 300.000 MM</strong>
-        <p>Daños globales anuales derivados de desastres naturales y eventos extremos.</p>
-      </div>
-      <div class="stat">
-        <strong>+USD 50.000 MM</strong>
-        <p>Pérdidas anuales en Estados Unidos asociadas a tormentas, huracanes y eventos climáticos severos.</p>
-      </div>
-      <div class="stat">
-        <strong>Funding activo</strong>
-        <p>Mitigación, disaster recovery, resiliencia operativa, protección territorial e infraestructura crítica.</p>
-      </div>
-      <div class="stat">
-        <strong>Ventaja temprana</strong>
-        <p>Entrar antes permite capturar relaciones, narrativa, validación y posición operativa.</p>
-      </div>
-    </div>
-
-    <div class="box">
-      <p>
-        El capital ya existe. La diferencia está en quién tiene una solución lista para ejecutarse y presentarse con seriedad frente a mercados exigentes.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="tesis">
-  <div class="container">
-    <h2 class="section-title">Tesis de inversión</h2>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Cómo se captura el dinero</h3>
-        <p>Posicionando SHB dentro de programas financiados de mitigación, protección crítica, continuidad operativa y respuesta frente a eventos extremos.</p>
-      </div>
-      <div class="card">
-        <h3>Quién paga</h3>
-        <p>Gobierno, aseguradoras, sector privado, desarrolladores, operadores de infraestructura y actores expuestos a riesgo físico y patrimonial.</p>
-      </div>
-      <div class="card">
-        <h3>Por qué escala</h3>
-        <p>Porque puede replicarse por unidad, por contrato, por necesidad territorial y por lógica de infraestructura resiliente en distintos mercados.</p>
-      </div>
-    </div>
-
-    <div class="box">
-      <p>
-        SHB no compite con construcción convencional. SHB se presenta como infraestructura resiliente financiable, con lectura técnica, narrativa comercial y capacidad real de despliegue.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="sistema">
-  <div class="container">
-    <h2 class="section-title">Capacidades del sistema</h2>
-
-    <div class="image-block">
-      <div class="image-wrap">
-        <img src="shb-structure.jpg" alt="Estructura SHB">
-      </div>
-      <div class="copy-block">
-        <h3>Estructura orientada a cumplimiento</h3>
-        <p>
-          La unidad se presenta bajo criterios de ingeniería y despliegue compatibles con entornos donde la mitigación, la continuidad operativa y la protección de infraestructura tienen presupuesto activo.
-        </p>
-        <ul class="clean-list">
-          <li>Resistencia estructural frente a escenarios de carga exigente.</li>
-          <li>Protección contra inundación con lógica de base elevada.</li>
-          <li>Sistema de anclaje de alta resistencia.</li>
-          <li>Sellado hermético e impermeabilidad.</li>
-          <li>Ventilación protegida y control ambiental.</li>
-          <li>Configuración funcional para ocupación real.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="image-block reverse">
-      <div class="copy-block">
-        <h3>Habitabilidad con sentido comercial</h3>
-        <p>
-          La configuración interior no se presenta como un detalle estético. Se presenta como traducción de protección en usabilidad inmediata, reduciendo fricción entre necesidad crítica y solución implementable.
-        </p>
-        <ul class="clean-list">
-          <li>Distribución interior orientada a operación real.</li>
-          <li>Continuidad funcional en contexto adverso.</li>
-          <li>Lectura de producto utilizable, no solo conceptual.</li>
-          <li>Mayor facilidad de explicación frente a clientes, contratos y aliados.</li>
-        </ul>
-      </div>
-      <div class="image-wrap">
-        <img src="shb-interior.jpg" alt="Interior SHB">
-      </div>
-    </div>
-
-    <div class="image-block">
-      <div class="image-wrap">
-        <img src="shb-install.jpg" alt="Instalación SHB">
-      </div>
-      <div class="copy-block">
-        <h3>Despliegue rápido y replicable</h3>
-        <p>
-          El valor no está solo en fabricar una unidad. Está en la capacidad de instalar, mover, reinstalar y escalar una solución bajo una lógica comercial coherente.
-        </p>
-        <ul class="clean-list">
-          <li>Arquitectura modular reubicable.</li>
-          <li>Base permanente con conexión desmontable.</li>
-          <li>Puntos de izaje integrados.</li>
-          <li>Transporte controlado y reinstalación.</li>
-          <li>Modelo replicable por contrato, mercado o necesidad territorial.</li>
-          <li>Ventaja clara en escenarios donde el tiempo de despliegue importa.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Autoridad técnica</h2>
-
-    <div class="grid grid-4">
-      <div class="card">
-        <h3>Criterio estructural</h3>
-        <p>Diseño orientado a cargas de viento extremo, estabilidad estructural, anclaje y permanencia operativa.</p>
-      </div>
-      <div class="card">
-        <h3>Protección hídrica</h3>
-        <p>Lectura compatible con elevación, zonas de riesgo y lógica de protección frente a eventos hídricos severos.</p>
-      </div>
-      <div class="card">
-        <h3>Continuidad</h3>
-        <p>Infraestructura pensada para mantener función, resguardo y capacidad de respuesta cuando el entorno pierde normalidad.</p>
-      </div>
-      <div class="card">
-        <h3>Ruta de ejecución</h3>
-        <p>Integrable a ingeniería firmada, validación técnica, soporte documental, compliance y despliegue.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="fase">
-  <div class="container">
-    <h2 class="section-title">Fase actual</h2>
-
-    <div class="box">
-      <p>
-        En esta etapa el proyecto se encuentra en proceso de consolidación técnica, lectura de costos, estructuración de narrativa financiera y apertura de relaciones con capital estratégico.
-      </p>
-      <p>
-        El acceso se maneja de forma controlada. No se trata de una página abierta para captación masiva. Se trata de un punto de entrada para evaluación inicial y contacto directo.
-      </p>
-    </div>
-
-    <div class="cta-box">
-      <p>Acceso limitado a inversionistas y aliados estratégicos.</p>
-      <button class="btn btn-primary" onclick="openModal()">Solicitar acceso prioritario</button>
-    </div>
-  </div>
-</section>
-
-<div class="footer">
-  <strong>SHB Project</strong> · Smart Hybrid Bunker · Landing de acceso a inversión
-</div>
-
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h3>Acceso a inversión</h3>
-    <p>Complete estos datos para continuar a contacto directo.</p>
-
-    <input type="text" id="leadName" placeholder="Nombre">
-    <input type="email" id="leadEmail" placeholder="Email">
-    <input type="text" id="leadAmount" placeholder="Monto">
-    <textarea id="leadMsg" placeholder="Mensaje breve (opcional)"></textarea>
-
-    <div class="modal-actions">
-      <button class="modal-btn modal-btn-primary" onclick="closeModal()">Enviar</button>
-      <button class="modal-btn modal-btn-secondary" onclick="closeModal()">Cerrar</button>
-    </div>
-  </div>
-</div>
-
 <script>
-function openModal(){
-document.getElementById("modal").classList.add("show");
-}
-function closeModal(){
-document.getElementById("modal").classList.remove("show");
-}
-</script>
+const WHATSAPP_NUMBER = "17863320667";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyC9A0xvBRv3XS2bJrh6Q7aNxTtm93RwB-j0qo6-5bbgs-jhDyL4Zr204jmAir_zPyzqw/exec";
 
-</body>
-</html>
+function openModal(){
+  resetStatus();
+  document.getElementById("leadModal").classList.add("show");
+}
+
+function closeModal(){
+  document.getElementById("leadModal").classList.remove("show");
+}
+
+function resetStatus(){
+  const box = document.getElementById("statusMessage");
+  box.textContent = "";
+  box.className = "status-message";
+}
+
+function showStatus(message, isError = false){
+  const box = document.getElementById("statusMessage");
+  box.textContent = message;
+  box.className = isError ? "status-message error" : "status-message show";
+}
+
+function validateEmail(email){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function getLeadData(){
+  return {
+    nombre: document.getElementById("leadName").value.trim(),
+    email: document.getElementById("leadEmail").value.trim(),
+    interes: document.getElementById("leadAmount").value.trim(),
+    mensaje: document.getElementById("leadMessage").value.trim(),
+    origen: "shbbunker.com",
+    fecha: new Date().toISOString()
+  };
+}
+
+function saveLocalBackup(data){
+  try{
+    const previous = JSON.parse(localStorage.getItem("shb_leads_backup") || "[]");
+    previous.push(data);
+    localStorage.setItem("shb_leads_backup", JSON.stringify(previous));
+  }catch(e){}
+}
+
+async function saveToGoogleSheets(data){
+  const response = await fetch(SCRIPT_URL,{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify(data)
+  });
+
+  return { ok: response.ok };
+}
+
+function openWhatsApp(data){
+  const text =
+    "Nuevo lead SHB%0A%0A" +
+    "Nombre: " + encodeURIComponent(data.nombre) + "%0A" +
+    "Email: " + encodeURIComponent(data.email) + "%0A" +
+    "Interés / monto: " + encodeURIComponent(data.interes) + "%0A" +
+    "Mensaje: " + encodeURIComponent(data.mensaje || "Sin mensaje adicional") + "%0A" +
+    "Origen: " + encodeURIComponent(data.origen);
+
+  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text, "_blank");
+}
+
+function clearForm(){
+  document.getElementById("leadName").value = "";
+  document.getElementById("leadEmail").value = "";
+  document.getElementById("leadAmount").value = "";
+  document.getElementById("leadMessage").value = "";
+}
+
+async function submitLead(){
+  resetStatus();
+
+  const btn = document.getElementById("submitBtn");
+  const data = getLeadData();
+
+  if(!data.nombre){
+    showStatus("Debes indicar tu nombre completo.", true);
+    return;
+  }
+
+  if(!data.email){
+    showStatus("Debes indicar tu email.", true);
+    return;
+  }
+
+  if(!validateEmail(data.email)){
+    showStatus("Debes indicar un email válido.", true);
+    return;
+  }
+
+  if(!data.interes){
+    showStatus("Debes indicar tu monto estimado o nivel de interés.", true);
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Procesando...";
+  showStatus("Registrando información y preparando contacto...");
+
+  saveLocalBackup(data);
+
+  try{
+    await saveToGoogleSheets(data);
+    showStatus("Información registrada. Abriendo WhatsApp...");
+  }catch(error){
+    showStatus("No se confirmó el guardado remoto. Se conserva respaldo local y se abrirá WhatsApp.");
+  }
+
+  openWhatsApp(data);
+  clearForm();
+
+  setTimeout(() => {
+    closeModal();
+    resetStatus();
+    btn.disabled = false;
+    btn.textContent = "Enviar y abrir WhatsApp";
+  }, 900);
+}
+
+window.addEventListener("click", function(event){
+  const modal = document.getElementById("leadModal");
+  if(event.target === modal){
+    closeModal();
+  }
+});
+</script>
