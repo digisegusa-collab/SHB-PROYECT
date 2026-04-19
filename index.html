@@ -1,767 +1,237 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SHB Project | Smart Hybrid Bunker</title>
-<meta name="description" content="Infraestructura crítica diseñada para capturar capital en mitigación de desastres, resiliencia operativa y protección de activos." />
 
 <style>
-  * { box-sizing: border-box; }
-
-  :root {
-    --bg-1: #050b16;
-    --bg-2: #0f172a;
-    --panel: rgba(255,255,255,0.05);
-    --panel-border: rgba(255,255,255,0.08);
-    --text: #ffffff;
-    --soft: #dbe4f0;
-    --muted: #94a3b8;
-    --brand: #38bdf8;
-    --brand-dark: #081120;
-    --green: #25D366;
-    --danger: #ffb4b4;
-    --shadow: 0 24px 70px rgba(0,0,0,0.35);
-    --radius-xl: 24px;
-    --radius-lg: 18px;
-    --radius-md: 12px;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
-    color: var(--text);
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .hero {
-    padding: 42px 0 72px;
-  }
-
-  .hero-shell {
-    background:
-      radial-gradient(circle at top right, rgba(56,189,248,0.10), transparent 25%),
-      radial-gradient(circle at top left, rgba(56,189,248,0.08), transparent 22%),
-      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
-
-  .hero-top {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 0;
-  }
-
-  .hero-copy {
-    padding: 56px 44px;
-  }
-
-  .hero-visual {
-    min-height: 420px;
-    background:
-      linear-gradient(180deg, rgba(4,8,15,0.18), rgba(4,8,15,0.58)),
-      linear-gradient(135deg, #0e223d, #10253c 40%, #0f172a);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px;
-  }
-
-  .mock-panel {
-    width: 100%;
-    max-width: 460px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.10);
-    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-    padding: 24px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.32);
-  }
-
-  .mock-title {
-    font-size: 14px;
-    color: #c8eefe;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .mock-grid {
-    display: grid;
-    gap: 12px;
-  }
-
-  .mock-card {
-    border-radius: 14px;
-    padding: 16px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .mock-card strong {
-    display: block;
-    color: var(--brand);
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-
-  .mock-card span {
-    display: block;
-    color: var(--soft);
-    font-size: 14px;
-    line-height: 1.55;
-  }
-
-  .badge {
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(56,189,248,0.10);
-    border: 1px solid rgba(56,189,248,0.24);
-    color: #bfeeff;
-    font-size: 13px;
-    margin-bottom: 16px;
-  }
-
-  h1 {
-    margin: 0 0 16px;
-    font-size: 56px;
-    line-height: 1.02;
-    color: var(--brand);
-    letter-spacing: -0.6px;
-    text-transform: uppercase;
-  }
-
-  .hero-copy .lead {
-    margin: 0 0 16px;
-    max-width: 760px;
-    font-size: 24px;
-    line-height: 1.62;
-    color: var(--soft);
-  }
-
-  .hero-copy .lead-strong {
-    margin: 0 0 18px;
-    max-width: 760px;
-    font-size: 25px;
-    line-height: 1.6;
-    color: #ffffff;
-    font-weight: bold;
-  }
-
-  .hero-copy .lead-status {
-    margin: 0;
-    max-width: 760px;
-    font-size: 18px;
-    line-height: 1.65;
-    color: #98dfff;
-  }
-
-  .buttons {
-    margin-top: 28px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 56px;
-    padding: 16px 28px;
-    border-radius: 12px;
-    border: 2px solid var(--brand);
-    background: transparent;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.18s ease;
-  }
-
-  .btn:hover {
-    transform: translateY(-1px);
-  }
-
-  .btn-primary {
-    background: var(--brand);
-    color: var(--brand-dark);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: #fff;
-  }
-
-  .section {
-    padding: 68px 0 0;
-  }
-
-  .section h2 {
-    margin: 0 0 18px;
-    font-size: 42px;
-    color: #7dd3fc;
-    text-align: center;
-  }
-
-  .section-intro {
-    max-width: 860px;
-    margin: 0 auto 10px;
-    text-align: center;
-    font-size: 21px;
-    line-height: 1.72;
-    color: var(--soft);
-  }
-
-  .box {
-    background: var(--panel);
-    border: 1px solid var(--panel-border);
-    border-radius: 18px;
-    padding: 28px;
-    margin-top: 18px;
-    box-shadow: 0 12px 34px rgba(0,0,0,0.16);
-  }
-
-  .box p {
-    margin: 0 0 16px;
-    font-size: 20px;
-    line-height: 1.72;
-    color: var(--soft);
-  }
-
-  .box p:last-child {
-    margin-bottom: 0;
-  }
-
-  .stats-grid,
-  .cards-grid,
-  .detail-grid,
-  .exec-grid {
-    display: grid;
-    gap: 18px;
-    margin-top: 24px;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .cards-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .detail-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .exec-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .stat,
-  .card,
-  .detail-card,
-  .exec-card {
-    background: var(--panel);
-    border: 1px solid var(--panel-border);
-    border-radius: 16px;
-    padding: 22px;
-  }
-
-  .stat .number {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 34px;
-    font-weight: bold;
-    color: var(--brand);
-  }
-
-  .stat p,
-  .card p,
-  .detail-card p,
-  .exec-card p {
-    margin: 0;
-    color: var(--soft);
-    font-size: 18px;
-    line-height: 1.65;
-  }
-
-  .card h3,
-  .detail-card h3,
-  .exec-card h3 {
-    margin: 0 0 10px;
-    font-size: 24px;
-    color: var(--brand);
-  }
-
-  .callout {
-    margin-top: 22px;
-    background: rgba(56,189,248,0.08);
-    border: 1px solid rgba(56,189,248,0.22);
-    border-radius: 18px;
-    padding: 22px;
-    text-align: center;
-  }
-
-  .callout p {
-    margin: 0;
-    font-size: 21px;
-    line-height: 1.7;
-    color: #dff5ff;
-  }
-
-  .closing {
-    margin-top: 26px;
-    text-align: center;
-  }
-
-  .footer {
-    padding: 70px 20px 54px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  .footer strong {
-    color: #d6ebff;
-  }
-
-  .legal-note {
-    margin-top: 10px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  .modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.86);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    padding: 18px;
-  }
-
-  .modal.show {
-    display: flex;
-  }
-
-  .modal-content {
-    width: 100%;
-    max-width: 520px;
-    background: #0f172a;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 18px;
-    padding: 26px;
-    box-shadow: 0 24px 70px rgba(0,0,0,0.42);
-  }
-
-  .modal-content h3 {
-    margin: 0 0 10px;
-    font-size: 30px;
-    color: var(--brand);
-  }
-
-  .modal-content p {
-    margin: 0 0 14px;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #cbd5e1;
-  }
-
-  .modal-content input,
-  .modal-content select,
-  .modal-content textarea {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.12);
-    background: #081120;
-    color: #ffffff;
-    font-size: 15px;
-    outline: none;
-  }
-
-  .modal-content textarea {
-    min-height: 92px;
-    resize: vertical;
-  }
-
-  .modal-actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 6px;
-  }
-
-  .modal-btn {
-    flex: 1;
-    min-width: 160px;
-    padding: 14px 16px;
-    border: none;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .modal-btn-primary {
-    background: var(--green);
-    color: #fff;
-  }
-
-  .modal-btn-secondary {
-    background: transparent;
-    color: #fff;
-    border: 2px solid var(--brand);
-  }
-
-  .status-message {
-    display: none;
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.55;
-    color: #dbeafe;
-  }
-
-  .status-message.error {
-    color: var(--danger);
-  }
-
-  @media (max-width: 1024px) {
-    .hero-top,
-    .stats-grid,
-    .cards-grid,
-    .detail-grid,
-    .exec-grid {
-      grid-template-columns: 1fr;
-    }
-
-    h1 {
-      font-size: 42px;
-    }
-
-    .hero-copy .lead,
-    .hero-copy .lead-strong,
-    .section-intro,
-    .box p {
-      font-size: 19px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .container {
-      padding: 0 18px;
-    }
-
-    .hero-copy {
-      padding: 34px 22px;
-    }
-
-    h1 {
-      font-size: 34px;
-    }
-
-    .hero-copy .lead,
-    .hero-copy .lead-strong,
-    .hero-copy .lead-status,
-    .section-intro,
-    .box p,
-    .stat p,
-    .card p,
-    .detail-card p,
-    .exec-card p {
-      font-size: 16px;
-      line-height: 1.68;
-    }
-
-    .section h2 {
-      font-size: 28px;
-    }
-
-    .card h3,
-    .detail-card h3,
-    .exec-card h3 {
-      font-size: 22px;
-    }
-
-    .buttons {
-      flex-direction: column;
-    }
-
-    .btn {
-      width: 100%;
-    }
-  }
+body{
+margin:0;
+font-family:Arial;
+background:#020617;
+color:white;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
+h2{
+margin-top:80px;
+font-size:28px;
+color:#38bdf8;
+}
+
+p{
+color:#cbd5e1;
+line-height:1.7;
+}
+
+.hero{
+text-align:center;
+margin-top:60px;
+}
+
+.btn{
+background:#38bdf8;
+color:black;
+padding:16px 28px;
+border:none;
+font-weight:bold;
+cursor:pointer;
+border-radius:8px;
+margin-top:20px;
+}
+
+.section{
+margin-top:60px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.card{
+background:#0f172a;
+padding:20px;
+border-radius:12px;
+}
+
+img{
+width:100%;
+border-radius:12px;
+margin-top:20px;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+}
+
+.modal.show{
+display:flex;
+}
+
+.modal-content{
+background:#0f172a;
+padding:20px;
+border-radius:10px;
+width:90%;
+max-width:400px;
+}
+
+.modal input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:6px;
+}
+
+.modal button{
+margin-top:10px;
+padding:12px;
+width:100%;
+border:none;
+cursor:pointer;
+}
+
 </style>
 </head>
+
 <body>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-shell">
-      <div class="hero-top">
-        <div class="hero-copy">
-          <div class="badge">SHB | Smart Hybrid Bunker</div>
+<div class="container">
 
-          <h1>INFRAESTRUCTURA DISEÑADA PARA CAPTURAR CAPITAL EXISTENTE</h1>
+<div class="hero">
+<h1>Infraestructura diseñada para capturar capital existente</h1>
 
-          <p class="lead">
-            No estamos creando demanda. Estamos entrando en un mercado donde el financiamiento ya existe y donde la diferencia la marca quién tiene una solución lista para ejecutarse.
-          </p>
+<p>No estamos creando demanda. Estamos entrando en un mercado donde el financiamiento ya existe.</p>
 
-          <p class="lead">
-            SHB se posiciona como infraestructura resiliente, protegible, escalable y comercializable dentro del ecosistema de mitigación, continuidad operativa y protección de activos críticos.
-          </p>
+<p><strong>Esto no es un concepto. Es una posición dentro de un mercado que ya está pagando.</strong></p>
 
-          <p class="lead-strong">
-            Esto no es un concepto. Es una posición dentro de un mercado que ya está pagando.
-          </p>
-
-          <p class="lead-status">
-            Actualmente en fase de posicionamiento estratégico, validación técnica, estructuración de ejecución y apertura de relaciones con inversionistas y aliados clave.
-          </p>
-
-          <div class="buttons">
-            <button class="btn btn-primary" onclick="openModal()">Acceso prioritario a inversión</button>
-            <button class="btn btn-secondary" onclick="document.getElementById('tesis').scrollIntoView({behavior:'smooth'})">Ver tesis de inversión</button>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="mock-panel">
-            <div class="mock-title">Lectura estratégica del activo</div>
-
-            <div class="mock-grid">
-              <div class="mock-card">
-                <strong>Funding activo</strong>
-                <span>Mercado alimentado por mitigación, continuidad operativa, programas públicos, riesgo asegurador y resiliencia de infraestructura.</span>
-              </div>
-
-              <div class="mock-card">
-                <strong>Entrada temprana</strong>
-                <span>Posicionamiento previo a la saturación del mercado y antes de que la ventaja de ejecución se cierre.</span>
-              </div>
-
-              <div class="mock-card">
-                <strong>Activo ejecutable</strong>
-                <span>Orientado a despliegue, cumplimiento, contratos, ingeniería y monetización. No solo a narrativa.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="capital">
-  <div class="container">
-    <h2>El dinero ya está asignado</h2>
-
-    <p class="section-intro">
-      El problema no es la ausencia de capital. El problema real es quién tiene una solución estructurada, técnica y ejecutable para capturarlo dentro de un mercado con funding ya activado.
-    </p>
-
-    <div class="stats-grid">
-      <div class="stat">
-        <span class="number">+USD 300.000 MM</span>
-        <p>Daños globales anuales derivados de desastres naturales y eventos extremos.</p>
-      </div>
-
-      <div class="stat">
-        <span class="number">+USD 50.000 MM</span>
-        <p>Pérdidas anuales en Estados Unidos asociadas a tormentas, huracanes y eventos climáticos severos.</p>
-      </div>
-
-      <div class="stat">
-        <span class="number">Funding activo</span>
-        <p>Mitigación, disaster recovery, resiliencia operativa, protección territorial e infraestructura crítica.</p>
-      </div>
-
-      <div class="stat">
-        <span class="number">Ventaja temprana</span>
-        <p>Entrar antes permite capturar relaciones, narrativa, validación y posición operativa.</p>
-      </div>
-    </div>
-
-    <div class="callout">
-      <p><strong>El capital ya existe. La diferencia está en quién tiene una solución lista para ejecutarse.</strong></p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="mercado">
-  <div class="container">
-    <h2>Por qué este mercado importa ahora</h2>
-
-    <div class="box">
-      <p>
-        El ecosistema de mitigación y protección ya no se mueve por intuición. Se mueve por asignación presupuestaria, presión regulatoria, exposición patrimonial y necesidad de continuidad. Gobiernos, aseguradoras, operadores críticos y sector privado están incrementando gasto para reducir daño, tiempo fuera de operación y pérdida de activos.
-      </p>
-
-      <p>
-        En ese contexto, SHB no se presenta como construcción tradicional. Se presenta como un activo de resiliencia con lectura técnica, tesis comercial, posibilidad de despliegue y entrada natural en ecosistemas donde ya existe dinero asignado.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="tesis">
-  <div class="container">
-    <h2>Tesis de inversión</h2>
-
-    <div class="cards-grid">
-      <div class="card">
-        <h3>Cómo se captura el dinero</h3>
-        <p>
-          Posicionando SHB dentro de programas financiados de mitigación, protección crítica, continuidad operativa y respuesta frente a eventos extremos.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Quién paga</h3>
-        <p>
-          Gobierno, aseguradoras, sector privado, desarrolladores, operadores de infraestructura y actores expuestos a riesgo físico y patrimonial.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Por qué es escalable</h3>
-        <p>
-          Porque puede replicarse por unidad, por contrato, por necesidad territorial y por lógica de infraestructura resiliente en distintos mercados.
-        </p>
-      </div>
-    </div>
-
-    <div class="box">
-      <p>
-        SHB no compite con construcción convencional. SHB se posiciona como infraestructura resiliente financiable, con capacidad de entrar en mercados donde la velocidad de despliegue y la reducción de exposición tienen valor económico inmediato.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="tecnica">
-  <div class="container">
-    <h2>Base técnica y autoridad del activo</h2>
-
-    <div class="detail-grid">
-      <div class="detail-card">
-        <h3>Criterio estructural</h3>
-        <p>
-          Diseño orientado a cargas de viento extremo, estabilidad estructural, anclaje y permanencia operativa en escenarios de exigencia real.
-        </p>
-      </div>
-
-      <div class="detail-card">
-        <h3>Protección por inundación</h3>
-        <p>
-          Lectura compatible con zonas de riesgo, elevación, flood maps, criterios BFE y lógicas de protección frente a eventos hídricos severos.
-        </p>
-      </div>
-
-      <div class="detail-card">
-        <h3>Continuidad operativa</h3>
-        <p>
-          Infraestructura pensada para mantener función, resguardo y capacidad de respuesta cuando el entorno pierde normalidad.
-        </p>
-      </div>
-
-      <div class="detail-card">
-        <h3>Ruta de cumplimiento</h3>
-        <p>
-          Integrable a ingeniería firmada, memoria de cálculo, validación técnica, compliance, permisos y soporte documental de ejecución.
-        </p>
-      </div>
-    </div>
-
-    <div class="box">
-      <p>
-        El valor del activo no está solo en el refugio físico. Está en la capacidad de presentarse como una solución técnicamente defendible, contractualmente ejecutable y comercialmente monetizable.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ejecucion">
-  <div class="container">
-    <h2>Lógica de ejecución</h2>
-
-    <div class="exec-grid">
-      <div class="exec-card">
-        <h3>Ingeniería</h3>
-        <p>Validación estructural, cargas, anclaje, criterios de despliegue y soporte técnico.</p>
-      </div>
-
-      <div class="exec-card">
-        <h3>Fabricación</h3>
-        <p>Modelo replicable, adaptable y orientado a producir unidades con consistencia técnica.</p>
-      </div>
-
-      <div class="exec-card">
-        <h3>Instalación</h3>
-        <p>Despliegue en sitio con lógica de rapidez, control de ejecución y escalabilidad territorial.</p>
-      </div>
-
-      <div class="exec-card">
-        <h3>Monetización</h3>
-        <p>Entrada en contratos, programas o esquemas de resiliencia donde ya existe funding activo.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="fase">
-  <div class="container">
-    <h2>Fase actual</h2>
-
-    <div class="box">
-      <p>
-        En esta etapa el proyecto se encuentra en proceso de consolidación técnica, lectura de costos, estructuración de narrativa financiera y apertura de relaciones con capital estratégico.
-      </p>
-
-      <p>
-        El acceso se maneja de forma controlada. No se trata de una página abierta para captación masiva. Se trata de un punto de entrada para evaluación inicial y contacto directo.
-      </p>
-    </div>
-
-    <div class="closing">
-      <button class="btn btn-primary" onclick="openModal()">Solicitar acceso prioritario</button>
-    </div>
-  </div>
-</section>
-
-<div class="footer">
-  <strong>SHB Project</strong> · Smart Hybrid Bunker · Landing de acceso a inversión
-  <div class="legal-note">
-    Esta página no constituye oferta pública de inversión, no solicita depósitos y no publica cuentas bancarias. La información se utiliza exclusivamente para evaluación inicial y contacto directo.
-  </div>
+<button class="btn" onclick="openModal()">Acceso prioritario</button>
 </div>
 
-<div id="leadModal" class="modal">
-  <div class="modal-content">
-    <h3>Acceso a oportunidad de inversión</h3>
-    <p
+<div class="section">
+<h2>El dinero ya está asignado</h2>
+
+<div class="grid">
+<div class="card"><h3>$300B+</h3><p>Daños globales anuales.</p></div>
+<div class="card"><h3>$50B+</h3><p>Pérdidas en EE.UU.</p></div>
+<div class="card"><h3>Funding activo</h3><p>Mitigación y resiliencia.</p></div>
+<div class="card"><h3>Entrada temprana</h3><p>Ventaja estratégica.</p></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Tesis de inversión</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Captura</h3>
+<p>Entrada en programas financiados de mitigación y continuidad operativa.</p>
+</div>
+
+<div class="card">
+<h3>Pagadores</h3>
+<p>Gobierno, aseguradoras y sector privado.</p>
+</div>
+
+<div class="card">
+<h3>Escala</h3>
+<p>Modelo replicable por mercado y contrato.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Capacidades del sistema</h2>
+
+<img src="TU_IMAGEN_1.jpg">
+
+<div class="grid">
+<div class="card"><h3>Resistencia estructural</h3><p>Diseñado para cargas extremas de viento.</p></div>
+<div class="card"><h3>Protección contra inundaciones</h3><p>Sistema elevado bajo criterios BFE.</p></div>
+<div class="card"><h3>Anclaje</h3><p>Sistema de alta resistencia.</p></div>
+<div class="card"><h3>Sellado</h3><p>Hermético e impermeable.</p></div>
+<div class="card"><h3>Ventilación</h3><p>Protegida y controlada.</p></div>
+<div class="card"><h3>Habitabilidad</h3><p>Capacidad para operación real.</p></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Despliegue y reubicación</h2>
+
+<img src="TU_IMAGEN_2.jpg">
+
+<div class="grid">
+<div class="card"><h3>Modularidad</h3><p>Construcción adaptable.</p></div>
+<div class="card"><h3>Reubicación</h3><p>Movilidad entre ubicaciones.</p></div>
+<div class="card"><h3>Instalación rápida</h3><p>Implementación eficiente.</p></div>
+<div class="card"><h3>Transporte</h3><p>Diseñado para traslado seguro.</p></div>
+<div class="card"><h3>Reinstalación</h3><p>Listo para nuevo destino.</p></div>
+<div class="card"><h3>Escalabilidad</h3><p>Replicable por mercado.</p></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Base técnica</h2>
+
+<div class="grid">
+<div class="card"><h3>Ingeniería</h3><p>Validación estructural.</p></div>
+<div class="card"><h3>Cumplimiento</h3><p>Adaptable a normativa.</p></div>
+<div class="card"><h3>Continuidad</h3><p>Operación en crisis.</p></div>
+<div class="card"><h3>Monetización</h3><p>Entrada en contratos reales.</p></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Fase actual</h2>
+
+<p>Proyecto en posicionamiento estratégico y apertura de relaciones con inversionistas.</p>
+
+<button class="btn" onclick="openModal()">Solicitar acceso</button>
+</div>
+
+</div>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<h3>Acceso a inversión</h3>
+
+<input placeholder="Nombre">
+<input placeholder="Email">
+<input placeholder="Monto">
+
+<button onclick="closeModal()">Enviar</button>
+<button onclick="closeModal()">Cerrar</button>
+</div>
+</div>
+
+<script>
+function openModal(){
+document.getElementById("modal").classList.add("show");
+}
+function closeModal(){
+document.getElementById("modal").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
