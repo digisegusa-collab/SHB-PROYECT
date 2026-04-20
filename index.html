@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Hybrid Bunker | SHB</title>
+  <meta name="description" content="Infraestructura resiliente para mitigación de huracanes, inundaciones y continuidad operativa. Solución orientada a mercado institucional, privado e inversión." />
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(27,83,140,0.28), transparent 30%),
+        linear-gradient(180deg,#07111d 0%, #0b1a2b 52%, #10243c 100%);
+      color:#ffffff;
+      line-height:1.6;
+    }
+
+    .wrapper{
+      max-width:1160px;
+      margin:0 auto;
+      padding:36px 18px 64px;
+    }
+
+    .hero{
+      text-align:center;
+      padding:18px 0 8px;
+    }
+
+    .hero-logo{
+      margin-bottom:22px;
+    }
+
+    .hero-logo img{
+      max-width:360px;
+      width:82%;
+      display:block;
+      margin:0 auto;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:52px;
+      line-height:1.04;
+      letter-spacing:-0.8px;
+      margin-bottom:16px;
+    }
+
+    .hero p{
+      max-width:930px;
+      margin:0 auto 12px;
+      color:#d7e6f3;
+      font-size:20px;
+    }
+
+    .hero .subcopy{
+      font-size:16px;
+      color:#b9d0e6;
+      max-width:950px;
+    }
+
+    .btn-row{
+      margin-top:24px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 24px;
+      border:none;
+      border-radius:10px;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      transition:.2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-primary{
+      background:#f08a24;
+      color:#111111;
+      box-shadow:0 10px 22px rgba(240,138,36,0.28);
+    }
+
+    section{
+      margin-top:54px;
+    }
+
+    h2{
+      font-size:38px;
+      margin-bottom:14px;
+      text-align:center;
+    }
+
+    h3{
+      font-size:26px;
+      margin-bottom:14px;
+    }
+
+    .section-intro{
+      max-width:950px;
+      margin:0 auto 24px;
+      text-align:center;
+      color:#d7e6f3;
+      font-size:18px;
+    }
+
+    .grid-4,
+    .grid-3{
+      display:grid;
+      gap:18px;
+    }
+
+    .grid-4{
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .grid-3{
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .card{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:16px;
+      padding:22px 18px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .card.center{
+      text-align:center;
+      font-weight:700;
+      min-height:120px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .stat{
+      text-align:center;
+      min-height:160px;
+    }
+
+    .stat .value{
+      font-size:30px;
+      font-weight:800;
+      margin-bottom:8px;
+      color:#ffffff;
+    }
+
+    .stat .label{
+      color:#d7e6f3;
+      font-size:15px;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .panel{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:16px;
+      padding:24px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .panel p{
+      color:#d7e6f3;
+      margin-bottom:12px;
+    }
+
+    .mini-label{
+      display:inline-block;
+      margin-bottom:10px;
+      font-size:12px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      color:#9ec7e7;
+    }
+
+    ul{
+      padding-left:20px;
+      color:#eaf2f9;
+    }
+
+    ul li{
+      margin-bottom:10px;
+    }
+
+    .single-visual{
+      max-width:980px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .single-visual img{
+      width:100%;
+      max-width:980px;
+      border-radius:18px;
+      box-shadow:0 18px 44px rgba(0,0,0,0.28);
+      display:block;
+      margin:0 auto 14px;
+    }
+
+    .single-visual p{
+      color:#c9d6e2;
+      font-size:15px;
+    }
+
+    .tech-badges{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .tech-badge{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:14px;
+      padding:14px;
+      text-align:center;
+      font-weight:700;
+      color:#f3f7fb;
+    }
+
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .form-group{
+      margin-bottom:14px;
+    }
+
+    input,
+    textarea{
+      width:100%;
+      padding:14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.18);
+      background:rgba(255,255,255,0.97);
+      color:#111111;
+      font-size:15px;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .status{
+      min-height:22px;
+      margin-top:12px;
+      font-size:14px;
+      color:#d7e6f3;
+    }
+
+    .footer{
+      margin-top:34px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,0.10);
+      text-align:center;
+      color:rgba(255,255,255,0.80);
+      font-size:13px;
+      line-height:1.8;
+    }
+
+    @media (max-width:980px){
+      .grid-4{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .grid-3,
+      .two-col,
+      .contact-wrap,
+      .tech-badges{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:42px;
+      }
+    }
+
+    @media (max-width:700px){
+      .grid-4{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:34px;
+      }
+
+      h2{
+        font-size:30px;
+      }
+
+      .hero p,
+      .section-intro{
+        font-size:17px;
+      }
+
+      .btn{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <section class="hero">
+      <div class="hero-logo">
+        <img src="logo-shb.jpg" alt="Logo SHB">
+      </div>
+
+      <div class="eyebrow">Disaster Mitigation Infrastructure</div>
+
+      <h1>Smart Hybrid Bunker</h1>
+
+      <p>
+        Infraestructura de protección resiliente diseñada para escenarios reales de huracanes, inundaciones, continuidad operativa y despliegue estratégico para mercados públicos, privados e institucionales.
+      </p>
+
+      <p class="subcopy">
+        SHB debe presentarse como una solución físicamente robusta, comercialmente estructurable y técnicamente defendible, con potencial de uso en respuesta a desastres, protección residencial, infraestructura crítica y aplicaciones corporativas.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#validacion">Ver validación técnica</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>El problema</h2>
+      <p class="section-intro">
+        Los eventos climáticos extremos generan interrupciones operativas, pérdidas económicas, vulnerabilidad estructural y exposición crítica de activos. El mercado exige soluciones robustas, escalables y desplegables para escenarios reales.
+      </p>
+      <div class="grid-4">
+        <div class="card center">Huracanes extremos y presión de viento severa.</div>
+        <div class="card center">Inundaciones simultáneas y elevación de agua.</div>
+        <div class="card center">Interrupción operativa de hogares, empresas y activos críticos.</div>
+        <div class="card center">Déficit de soluciones integradas con narrativa técnica y comercial.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Mercado y oportunidad</h2>
+      <p class="section-intro">
+        SHB no solo responde a un problema físico. Responde a una oportunidad concreta de mercado vinculada a mitigación, resiliencia, continuidad operativa, infraestructura crítica y adquisiciones públicas o privadas con presupuesto asignable.
+      </p>
+      <div class="grid-3">
+        <div class="card stat">
+          <div class="value">Gobierno / FEMA</div>
+          <div class="label">Aplicabilidad para respuesta a emergencias, protección civil, continuidad operativa e infraestructura crítica.</div>
+        </div>
+        <div class="card stat">
+          <div class="value">Privado</div>
+          <div class="label">Uso potencial en residencial premium, corporativo, logística crítica y activos expuestos a desastre.</div>
+        </div>
+        <div class="card stat">
+          <div class="value">Producto</div>
+          <div class="label">Capacidad de convertirse en una solución comercialmente presentable, financiable y escalable.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>La solución SHB</h2>
+      <p class="section-intro">
+        Smart Hybrid Bunker plantea una unidad autónoma, modular y transportable que integra protección estructural, sistema de anclaje, resistencia frente a inundación, sellado, ventilación protegida y lógica de despliegue rápido.
+      </p>
+      <div class="grid-4">
+        <div class="card center">Estructura reforzada.</div>
+        <div class="card center">Sistema de anclaje integrado.</div>
+        <div class="card center">Protección contra inundación.</div>
+        <div class="card center">Modularidad, reubicación e instalación rápida.</div>
+      </div>
+    </section>
+
+    <section id="validacion">
+      <h2>Validación técnica</h2>
+      <p class="section-intro">
+        Esta sección integra el contenido sustantivo de las tres láminas técnicas, ya ordenado con lectura profesional para inversionistas, gobierno, FEMA y compradores institucionales.
+      </p>
+
+      <div class="tech-badges">
+        <div class="tech-badge">Florida Building Code 2023</div>
+        <div class="tech-badge">ASCE 7-22</div>
+        <div class="tech-badge">Evaluación ICC 500</div>
+      </div>
+
+      <div class="two-col">
+        <div class="panel">
+          <span class="mini-label">Base técnica</span>
+          <h3>Características, desempeño y especificaciones</h3>
+          <ul>
+            <li>Refugio certificable contra huracanes e inundaciones con capacidad para 4 personas.</li>
+            <li>Diseño estructural orientado a cargas extremas de viento, presión interna e impacto de proyectiles.</li>
+            <li>Resistencia a vientos de hasta 250 mph según sitio y criterios aplicables.</li>
+            <li>Sistema de anclaje estructural integrado para resistir uplift, deslizamiento y volcamiento según tipo de suelo.</li>
+            <li>Diseño hermético con sellado de alto desempeño y ventilación protegida.</li>
+            <li>Protección frente a inundaciones mediante base elevada y lógica de instalación sobre sitio preparado.</li>
+            <li>Dimensiones exteriores de 20 ft x 8 ft x 8.5 ft.</li>
+            <li>Peso aproximado de 10,000 lbs.</li>
+            <li>Material principal: acero estructural reforzado.</li>
+            <li>Vida útil estimada superior a 30 años.</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <span class="mini-label">Sistema funcional</span>
+          <h3>Componentes críticos del SHB</h3>
+          <ul>
+            <li>Puerta de alta seguridad con sellado hermético, diseñada para resistir presión interna y carga de impacto.</li>
+            <li>Ventilación con flujo controlado, protección contra entrada de agua y resistencia a presión.</li>
+            <li>Perfil estructural reforzado con rigidez interna para cargas externas severas.</li>
+            <li>Espacio interior optimizado para 4 personas, con bancos integrados, almacenamiento y soporte esencial.</li>
+            <li>Configuración modular para fabricación, transporte e instalación rápida.</li>
+            <li>Puntos de izaje integrados y conexiones desmontables para elevación y traslado.</li>
+            <li>Plataforma elevada y reconexión rápida para reinstalación segura en un nuevo sitio.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:22px;">
+        <div class="panel">
+          <span class="mini-label">Proceso operativo</span>
+          <h3>Desmontaje, traslado y reinstalación</h3>
+          <ul>
+            <li><strong>Desacople:</strong> retiro de pernos de anclaje y desconexión de utilidades si aplica.</li>
+            <li><strong>Elevación:</strong> izaje con grúa a través de puntos integrados y certificados de carga.</li>
+            <li><strong>Transporte:</strong> aseguramiento en tráiler y traslado al nuevo sitio.</li>
+            <li><strong>Reinstalación:</strong> colocación sobre nueva base preparada, reconexión y puesta en servicio.</li>
+            <li>El sistema está concebido para ciclos repetidos de instalación y desmontaje sin comprometer su integridad estructural.</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <span class="mini-label">Lectura ejecutiva</span>
+          <h3>Cómo debe presentarse SHB</h3>
+          <p>
+            SHB no debe venderse como un simple refugio aislado. Debe presentarse como una plataforma física de mitigación y protección, con capacidad de convertirse en producto, activo de inversión y solución institucional.
+          </p>
+          <p>
+            El enfoque correcto combina protección contra huracanes, inundaciones, continuidad operativa, modularidad, relocalización, instalación rápida y escalabilidad comercial.
+          </p>
+          <p>
+            La narrativa adecuada para inversionistas, sector privado y gobierno es: <strong>producto + validación técnica + mercado + posibilidad de escalamiento</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Aplicaciones</h2>
+      <p class="section-intro">
+        El modelo SHB puede adaptarse a distintas verticales donde la continuidad operativa y la protección física son prioritarias.
+      </p>
+      <div class="grid-4">
+        <div class="card center">Residencial.</div>
+        <div class="card center">Gobierno / FEMA.</div>
+        <div class="card center">Empresas privadas.</div>
+        <div class="card center">Infraestructura crítica.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Visual principal del sistema</h2>
+      <p class="section-intro">
+        Se deja una sola imagen visible para evitar saturación visual. La carga técnica de las otras láminas ya quedó incorporada en el cuerpo de la presentación.
+      </p>
+      <div class="single-visual">
+        <img src="shb.jpg" alt="Sistema SHB">
+        <p>Sistema SHB – imagen principal de referencia del concepto.</p>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Solicitar información</h2>
+      <p class="section-intro">
+        El canal de contacto queda concentrado en un solo flujo: captura de lead y apertura posterior de WhatsApp para seguimiento ejecutivo.
+      </p>
+
+      <div class="contact-wrap">
+        <div class="panel">
+          <h3>Contacto ejecutivo</h3>
+          <form id="leadForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Nombre completo" required>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="interest" placeholder="Monto estimado o nivel de interés">
+            </div>
+
+            <div class="form-group">
+              <textarea id="message" placeholder="Mensaje"></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Enviar y abrir WhatsApp</button>
+            <div class="status" id="statusMessage"></div>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h3>Canal directo</h3>
+          <p>
+            Una vez registrado el lead, el sistema abre el canal WhatsApp con los datos ya estructurados para acelerar la conversación comercial.
+          </p>
+          <p>
+            El sitio queda con una sola ruta de contacto útil, sin botones duplicados ni ventanas adicionales.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Smart Hybrid Bunker | Infraestructura de mitigación y resiliencia
+      <br>
+      Email: digisegusa@gmail.com
+      <br>
+      www.shbbunker.com
+    </div>
+
+  </div>
+
+  <script>
+    const WHATSAPP_NUMBER = "17863320066";
+
+    function validateEmail(email){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function setStatus(message, isError){
+      const box = document.getElementById("statusMessage");
+      box.textContent = message;
+      box.style.color = isError ? "#ffb3b3" : "#d7e6f3";
+    }
+
+    function buildLead(){
+      return {
+        nombre: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        interes: document.getElementById("interest").value.trim(),
+        mensaje: document.getElementById("message").value.trim(),
+        origen: "www.shbbunker.com"
+      };
+    }
+
+    function buildWhatsAppUrl(data){
+      const text =
+        "Nuevo contacto SHB:\n" +
+        "Nombre: " + data.nombre + "\n" +
+        "Email: " + data.email + "\n" +
+        "Interés: " + (data.interes || "No indicado") + "\n" +
+        "Mensaje: " + (data.mensaje || "Sin mensaje") + "\n" +
+        "Origen: " + data.origen;
+
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+    }
+
+    document.getElementById("leadForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const data = buildLead();
+
+      if(!data.nombre){
+        setStatus("Debes indicar tu nombre completo.", true);
+        return;
+      }
+
+      if(!data.email){
+        setStatus("Debes indicar tu email.", true);
+        return;
+      }
+
+      if(!validateEmail(data.email)){
+        setStatus("Debes indicar un email válido.", true);
+        return;
+      }
+
+      setStatus("Redirigiendo a WhatsApp...", false);
+
+      const url = buildWhatsAppUrl(data);
+
+      setTimeout(function(){
+        window.location.href = url;
+      }, 200);
+    });
+  </script>
+</body>
+</html>
