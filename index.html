@@ -1,76 +1,110 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHB Project | Smart Hybrid Bunker</title>
+<title>Smart Hybrid Bunker</title>
+
+<meta name="description" content="Infraestructura resiliente para protección contra huracanes, inundaciones y continuidad operativa.">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-font-family: Arial;
+font-family:Arial, sans-serif;
 background:#0b1a2b;
 color:white;
-margin:0;
-padding:0;
-text-align:center;
+line-height:1.6;
 }
 
 .container{
-padding:40px;
+max-width:1100px;
+margin:auto;
+padding:50px 20px;
+text-align:center;
+}
+
+.hero{
+padding:60px 20px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:800px;
+margin:auto;
+color:#c9d6e2;
+font-size:18px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 24px;
+margin:10px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn-primary{
+background:#ff7a00;
+color:white;
+}
+
+.btn-primary:hover{
+background:#ff5500;
+}
+
+.btn-secondary{
+border:1px solid white;
+color:white;
+}
+
+.btn-secondary:hover{
+background:white;
+color:#0b1a2b;
+}
+
+h2{
+margin-top:60px;
+margin-bottom:10px;
+}
+
+p{
+color:#c9d6e2;
+margin-bottom:10px;
 }
 
 img{
-max-width:300px;
-margin-bottom:20px;
-}
-
-button{
-padding:15px 25px;
-font-size:16px;
-background:#f08a24;
-border:none;
-color:black;
-font-weight:bold;
-cursor:pointer;
-border-radius:8px;
-}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
 width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
+max-width:900px;
+border-radius:12px;
+margin:30px auto;
+display:block;
 }
 
-.modal.show{
-display:flex;
-}
-
-.modal-content{
-background:#10243c;
-padding:20px;
-border-radius:10px;
-width:90%;
-max-width:400px;
+form{
+max-width:500px;
+margin:auto;
 }
 
 input, textarea{
 width:100%;
-padding:10px;
-margin-bottom:10px;
-border-radius:5px;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
 border:none;
 }
 
-.modal button{
-width:100%;
+footer{
+margin-top:50px;
+font-size:14px;
+color:#aaa;
+line-height:1.8;
 }
 </style>
 </head>
@@ -78,90 +112,98 @@ width:100%;
 <body>
 
 <div class="container">
-    <img src="logo-shb.jpg">
-    <h1>Smart Hybrid Bunker</h1>
-    <p>Unidad de protección contra huracanes e inundaciones</p>
 
-    <button onclick="openModal()">Conectar</button>
+<div class="hero">
+
+<h1>Smart Hybrid Bunker</h1>
+
+<p>
+Infraestructura de protección resiliente diseñada para escenarios reales de huracanes, inundaciones y continuidad operativa.
+Solución orientada a gobiernos, sector privado e inversión institucional.
+</p>
+
+<a class="btn btn-primary" href="#contacto">Solicitar información</a>
+<a class="btn btn-secondary" href="#tecnico">Ver validación técnica</a>
+
 </div>
 
-<!-- MODAL -->
-<div class="modal" id="leadModal">
-    <div class="modal-content">
-        <h2>Contacto</h2>
+<h2>El problema</h2>
 
-        <input type="text" id="leadName" placeholder="Nombre">
-        <input type="email" id="leadEmail" placeholder="Email">
-        <input type="text" id="leadAmount" placeholder="Monto / interés">
-        <textarea id="leadMessage" placeholder="Mensaje"></textarea>
+<p>
+Los eventos climáticos extremos generan disrupciones operativas, pérdidas económicas y exposición estructural crítica.
+Las soluciones actuales no integran protección, movilidad y escalabilidad.
+</p>
 
-        <button id="submitBtn" onclick="submitLead()">Enviar</button>
-    </div>
+<h2>Mercado y oportunidad</h2>
+
+<p>
+Aplicable en gobiernos, FEMA, sector privado e infraestructura crítica.
+Existe una demanda creciente por soluciones de mitigación de riesgo con ejecución rápida.
+</p>
+
+<h2>La solución SHB</h2>
+
+<p>
+Unidad modular, transportable, con sistema de anclaje, resistencia estructural
+y capacidad de despliegue inmediato en escenarios reales.
+</p>
+
+<h2 id="tecnico">Validación técnica</h2>
+
+<p>
+Diseño estructural conforme a códigos de Florida,
+anclajes certificados y materiales testados para condiciones extremas.
+Modelo preparado para evaluación técnica, comercial e inversión.
+</p>
+
+<h2>Aplicaciones</h2>
+
+<p>
+Uso residencial, institucional, corporativo y en infraestructura crítica.
+Adaptable a múltiples escenarios de riesgo.
+</p>
+
+<h2>Visual del sistema</h2>
+
+<img src="shb.jpg" alt="Smart Hybrid Bunker">
+
+<h2 id="contacto">Solicitar información</h2>
+
+<form onsubmit="sendWhatsApp(event)">
+<input type="text" id="name" placeholder="Nombre completo" required>
+<input type="email" id="email" placeholder="Email" required>
+<input type="text" id="interest" placeholder="Monto estimado o nivel de interés">
+<textarea id="message" placeholder="Mensaje"></textarea>
+<button class="btn btn-primary" type="submit">Enviar y abrir WhatsApp</button>
+</form>
+
+<footer>
+Smart Hybrid Bunker | Infraestructura de mitigación y resiliencia<br><br>
+Email: digisegusa@gmail.com<br>
+www.shbbunker.com
+</footer>
+
 </div>
 
-<!-- SCRIPT CORRECTAMENTE ABAJO -->
 <script>
-const WHATSAPP_NUMBER = "17863320667";
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyC9A0xvBRv3XS2bJrh6Q7aNxTtm93RwB-j0qo6-5bbgs-jhDyL4Zr204jmAir_zPyzqw/exec";
+function sendWhatsApp(e){
+e.preventDefault();
 
-function openModal(){
-document.getElementById("leadModal").classList.add("show");
-}
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const interest = document.getElementById('interest').value;
+const message = document.getElementById('message').value;
 
-function closeModal(){
-document.getElementById("leadModal").classList.remove("show");
-}
+const text =
+"Nuevo contacto SHB:\n\n" +
+"Nombre: " + name + "\n" +
+"Email: " + email + "\n" +
+"Interés: " + interest + "\n" +
+"Mensaje: " + message;
 
-function getLeadData(){
-return {
-nombre: document.getElementById("leadName").value,
-email: document.getElementById("leadEmail").value,
-interes: document.getElementById("leadAmount").value,
-mensaje: document.getElementById("leadMessage").value
-};
-}
+const url = "https://wa.me/17863320066?text=" + encodeURIComponent(text);
 
-async function submitLead(){
-
-const data = getLeadData();
-
-if(!data.nombre || !data.email || !data.interes){
-alert("Completa todos los campos");
-return;
-}
-
-// guardar en google sheets
-try{
-await fetch(SCRIPT_URL,{
-method:"POST",
-headers:{ "Content-Type":"application/json"},
-body:JSON.stringify(data)
-});
-}catch(e){}
-
-// abrir whatsapp SIEMPRE
-const text = `Nuevo lead SHB
-Nombre: ${data.nombre}
-Email: ${data.email}
-Interés: ${data.interes}
-Mensaje: ${data.mensaje}`;
-
-window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`);
-
-// limpiar
-document.getElementById("leadName").value="";
-document.getElementById("leadEmail").value="";
-document.getElementById("leadAmount").value="";
-document.getElementById("leadMessage").value="";
-
-closeModal();
-}
-
-// cerrar haciendo clic afuera
-window.onclick = function(e){
-if(e.target.id === "leadModal"){
-closeModal();
-}
+window.location.href = url;
 }
 </script>
 
