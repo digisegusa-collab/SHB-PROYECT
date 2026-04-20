@@ -1,101 +1,241 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SHB Project | Smart Hybrid Bunker</title>
 
 <style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
 body{
-font-family: Arial;
-background:#0b1a2b;
-color:white;
-margin:0;
-padding:0;
-text-align:center;
+  font-family:Arial, sans-serif;
+  background:radial-gradient(circle at top, #16365c 0%, #0b1a2b 45%, #07111d 100%);
+  color:#ffffff;
+  min-height:100vh;
+  text-align:center;
 }
 
-.container{
-padding:40px;
+.page{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 20px 60px;
 }
 
-img{
-max-width:300px;
-margin-bottom:20px;
+.hero-image{
+  width:100%;
+  max-width:420px;
+  border-radius:12px;
+  display:block;
+  margin:0 auto 28px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.35);
 }
 
-button{
-padding:15px 25px;
-font-size:16px;
-background:#f08a24;
-border:none;
-color:black;
-font-weight:bold;
-cursor:pointer;
-border-radius:8px;
+h1{
+  font-size:clamp(38px, 6vw, 62px);
+  line-height:1.05;
+  font-weight:800;
+  margin-bottom:14px;
+  text-shadow:0 0 18px rgba(255,255,255,0.12);
 }
 
-/* MODAL */
+.subtitle{
+  font-size:clamp(22px, 3vw, 34px);
+  line-height:1.25;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.copy{
+  width:100%;
+  max-width:760px;
+  margin:0 auto 30px;
+  font-size:18px;
+  line-height:1.7;
+  color:#d8e6f5;
+}
+
+.cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:210px;
+  min-height:58px;
+  padding:16px 28px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(180deg, #ffbe4d 0%, #f4a628 100%);
+  color:#232323;
+  font-size:20px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 16px 30px rgba(244,166,40,0.32);
+}
+
+.cta:hover{
+  transform:translateY(-1px);
+}
+
+.footer-note{
+  width:100%;
+  max-width:780px;
+  margin:24px auto 0;
+  color:#a8bfd7;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* Modal */
 .modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.72);
+  backdrop-filter:blur(4px);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:9999;
 }
 
 .modal.show{
-display:flex;
+  display:flex;
 }
 
-.modal-content{
-background:#10243c;
-padding:20px;
-border-radius:10px;
-width:90%;
-max-width:400px;
+.modal-card{
+  width:100%;
+  max-width:460px;
+  background:linear-gradient(180deg, #274c77 0%, #18324f 100%);
+  border-radius:18px;
+  padding:28px 22px 22px;
+  box-shadow:0 24px 50px rgba(0,0,0,0.45);
 }
 
-input, textarea{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-border-radius:5px;
-border:none;
+.modal-card h2{
+  font-size:20px;
+  margin-bottom:18px;
 }
 
-.modal button{
-width:100%;
+.form-control{
+  width:100%;
+  height:48px;
+  border:none;
+  border-radius:8px;
+  margin-bottom:12px;
+  padding:12px 14px;
+  font-size:15px;
+}
+
+textarea.form-control{
+  min-height:92px;
+  height:92px;
+  resize:vertical;
+}
+
+.status{
+  min-height:22px;
+  margin:6px 0 10px;
+  font-size:13px;
+  color:#d8e6f5;
+}
+
+.status.error{
+  color:#ffd2d2;
+}
+
+.modal-actions{
+  display:flex;
+  gap:10px;
+  margin-top:6px;
+}
+
+.modal-btn{
+  flex:1;
+  min-height:48px;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.modal-btn.primary{
+  background:linear-gradient(180deg, #ffbe4d 0%, #f4a628 100%);
+  color:#232323;
+}
+
+.modal-btn.secondary{
+  background:#10243c;
+  color:#ffffff;
+  border:1px solid rgba(255,255,255,0.18);
+}
+
+@media (max-width: 640px){
+  .page{
+    padding:28px 16px 50px;
+  }
+
+  .hero-image{
+    max-width:320px;
+    margin-bottom:22px;
+  }
+
+  .copy{
+    font-size:16px;
+  }
+
+  .modal-card{
+    padding:22px 16px 16px;
+  }
+
+  .modal-actions{
+    flex-direction:column;
+  }
 }
 </style>
 </head>
-
 <body>
 
-<div class="container">
-    <img src="shb.jpg">
-    <h1>Smart Hybrid Bunker</h1>
-    <p>Unidad de protección contra huracanes e inundaciones</p>
+<div class="page">
+  <img src="hero-shb.jpg" alt="SHB Smart Hybrid Bunker" class="hero-image" />
 
-    <button onclick="openModal()">Conectar</button>
+  <h1>Smart Hybrid Bunker</h1>
+  <div class="subtitle">Unidad de protección contra huracanes e inundaciones</div>
+
+  <p class="copy">
+    Infraestructura orientada a resiliencia, continuidad operativa y protección de activos en escenarios de riesgo extremo.
+    Solicita contacto directo para evaluación inicial.
+  </p>
+
+  <button class="cta" type="button" onclick="openModal()">Conectar</button>
+
+  <p class="footer-note">
+    Esta página canaliza solicitudes de contacto directo. La información enviada se registra para seguimiento comercial
+    y se conecta inmediatamente con WhatsApp.
+  </p>
 </div>
 
-<!-- MODAL -->
 <div class="modal" id="leadModal">
-    <div class="modal-content">
-        <h2>Contacto</h2>
+  <div class="modal-card" onclick="event.stopPropagation()">
+    <h2>Contacto</h2>
 
-        <input type="text" id="leadName" placeholder="Nombre">
-        <input type="email" id="leadEmail" placeholder="Email">
-        <input type="text" id="leadAmount" placeholder="Monto / interés">
-        <textarea id="leadMessage" placeholder="Mensaje"></textarea>
+    <input class="form-control" type="text" id="leadName" placeholder="Nombre" />
+    <input class="form-control" type="email" id="leadEmail" placeholder="Email" />
+    <input class="form-control" type="text" id="leadAmount" placeholder="Monto / interés" />
+    <textarea class="form-control" id="leadMessage" placeholder="Mensaje"></textarea>
 
-        <button onclick="submitLead()">Enviar</button>
+    <div class="status" id="statusBox"></div>
+
+    <div class="modal-actions">
+      <button class="modal-btn primary" id="submitBtn" type="button" onclick="submitLead()">Enviar</button>
+      <button class="modal-btn secondary" type="button" onclick="closeModal()">Cerrar</button>
     </div>
+  </div>
 </div>
 
 <script>
@@ -103,55 +243,164 @@ const WHATSAPP_NUMBER = "17863320667";
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyC9A0xvBRv3XS2bJrh6Q7aNxTtm93RwB-j0qo6-5bbgs-jhDyL4Zr204jmAir_zPyzqw/exec";
 
 function openModal(){
-document.getElementById("leadModal").classList.add("show");
+  resetStatus();
+  document.getElementById("leadModal").classList.add("show");
 }
 
 function closeModal(){
-document.getElementById("leadModal").classList.remove("show");
+  document.getElementById("leadModal").classList.remove("show");
+}
+
+function resetStatus(){
+  const box = document.getElementById("statusBox");
+  box.textContent = "";
+  box.className = "status";
+}
+
+function showStatus(message, isError = false){
+  const box = document.getElementById("statusBox");
+  box.textContent = message;
+  box.className = isError ? "status error" : "status";
+}
+
+function validateEmail(email){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 function getLeadData(){
-return {
-nombre: document.getElementById("leadName").value,
-email: document.getElementById("leadEmail").value,
-interes: document.getElementById("leadAmount").value,
-mensaje: document.getElementById("leadMessage").value
-};
+  return {
+    nombre: document.getElementById("leadName").value.trim(),
+    email: document.getElementById("leadEmail").value.trim(),
+    interes: document.getElementById("leadAmount").value.trim(),
+    mensaje: document.getElementById("leadMessage").value.trim(),
+    origen: "shbbunker.com",
+    fecha: new Date().toISOString()
+  };
+}
+
+function buildWhatsAppUrl(data){
+  const text =
+    "Nuevo lead SHB\n" +
+    "Nombre: " + data.nombre + "\n" +
+    "Email: " + data.email + "\n" +
+    "Interés / monto: " + data.interes + "\n" +
+    "Mensaje: " + (data.mensaje || "Sin mensaje adicional") + "\n" +
+    "Origen: " + data.origen;
+
+  return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+}
+
+function clearForm(){
+  document.getElementById("leadName").value = "";
+  document.getElementById("leadEmail").value = "";
+  document.getElementById("leadAmount").value = "";
+  document.getElementById("leadMessage").value = "";
+}
+
+function saveLocalBackup(data){
+  try{
+    const previous = JSON.parse(localStorage.getItem("shb_leads_backup") || "[]");
+    previous.push(data);
+    localStorage.setItem("shb_leads_backup", JSON.stringify(previous));
+  }catch(e){}
+}
+
+async function saveToGoogleSheets(data){
+  const response = await fetch(SCRIPT_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+  return response;
 }
 
 async function submitLead(){
+  resetStatus();
 
-const data = getLeadData();
+  const btn = document.getElementById("submitBtn");
+  const data = getLeadData();
 
-if(!data.nombre || !data.email || !data.interes){
-alert("Completa todos los campos");
-return;
+  if(!data.nombre){
+    showStatus("Debes indicar tu nombre.", true);
+    return;
+  }
+
+  if(!data.email){
+    showStatus("Debes indicar tu email.", true);
+    return;
+  }
+
+  if(!validateEmail(data.email)){
+    showStatus("Debes indicar un email válido.", true);
+    return;
+  }
+
+  if(!data.interes){
+    showStatus("Debes indicar tu monto estimado o nivel de interés.", true);
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Procesando...";
+  showStatus("Preparando contacto...");
+
+  const whatsappUrl = buildWhatsAppUrl(data);
+
+  /* CLAVE SAFARI:
+     se abre una ventana síncrona dentro del clic del usuario
+     para que el navegador no la bloquee.
+  */
+  let waWindow = window.open("about:blank", "_blank");
+
+  if(!waWindow){
+    showStatus("Safari bloqueó la apertura automática. Permite pop-ups para este sitio y vuelve a intentar.", true);
+    btn.disabled = false;
+    btn.textContent = "Enviar";
+    return;
+  }
+
+  try{
+    saveLocalBackup(data);
+
+    // Abrimos WhatsApp de inmediato para no perder el gesto del usuario
+    waWindow.location.href = whatsappUrl;
+
+    // Guardado remoto en paralelo
+    try{
+      await saveToGoogleSheets(data);
+      showStatus("Información registrada y WhatsApp abierto.");
+    }catch(error){
+      showStatus("WhatsApp abierto. El guardado remoto no se confirmó, pero el respaldo local quedó hecho.");
+    }
+
+    clearForm();
+
+    setTimeout(() => {
+      closeModal();
+      resetStatus();
+      btn.disabled = false;
+      btn.textContent = "Enviar";
+    }, 1200);
+
+  }catch(error){
+    try{
+      waWindow.close();
+    }catch(e){}
+
+    showStatus("Ocurrió un error al procesar el contacto.", true);
+    btn.disabled = false;
+    btn.textContent = "Enviar";
+  }
 }
 
-try{
-await fetch(SCRIPT_URL,{
-method:"POST",
-headers:{ "Content-Type":"application/json"},
-body:JSON.stringify(data)
+window.addEventListener("click", function(event){
+  const modal = document.getElementById("leadModal");
+  if(event.target === modal){
+    closeModal();
+  }
 });
-}catch(e){}
-
-const text = `Nuevo lead SHB
-Nombre: ${data.nombre}
-Email: ${data.email}
-Interés: ${data.interes}
-Mensaje: ${data.mensaje}`;
-
-window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`);
-
-closeModal();
-}
-
-window.onclick = function(e){
-if(e.target.id === "leadModal"){
-closeModal();
-}
-}
 </script>
 
 </body>
