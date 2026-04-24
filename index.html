@@ -7,15 +7,9 @@
   <meta name="description" content="Infraestructura resiliente para mitigación de huracanes, inundaciones y continuidad operativa. Solución orientada a mercado institucional, privado e inversión." />
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    *{ margin:0; padding:0; box-sizing:border-box; }
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{ scroll-behavior:smooth; }
 
     body{
       font-family:Arial, Helvetica, sans-serif;
@@ -32,14 +26,35 @@
       padding:36px 18px 64px;
     }
 
+    .lang-switch{
+      display:flex;
+      justify-content:flex-end;
+      gap:8px;
+      margin-bottom:12px;
+    }
+
+    .lang-switch button{
+      background:rgba(255,255,255,0.08);
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:8px;
+      padding:8px 12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .lang-switch button.active{
+      background:#f08a24;
+      color:#111111;
+      border-color:#f08a24;
+    }
+
     .hero{
       text-align:center;
       padding:18px 0 8px;
     }
 
-    .hero-logo{
-      margin-bottom:22px;
-    }
+    .hero-logo{ margin-bottom:22px; }
 
     .hero-logo img{
       max-width:360px;
@@ -101,9 +116,7 @@
       transition:.2s ease;
     }
 
-    .btn:hover{
-      transform:translateY(-1px);
-    }
+    .btn:hover{ transform:translateY(-1px); }
 
     .btn-primary{
       background:#f08a24;
@@ -111,9 +124,7 @@
       box-shadow:0 10px 22px rgba(240,138,36,0.28);
     }
 
-    section{
-      margin-top:54px;
-    }
+    section{ margin-top:54px; }
 
     h2{
       font-size:38px;
@@ -140,13 +151,8 @@
       gap:18px;
     }
 
-    .grid-4{
-      grid-template-columns:repeat(4,1fr);
-    }
-
-    .grid-3{
-      grid-template-columns:repeat(3,1fr);
-    }
+    .grid-4{ grid-template-columns:repeat(4,1fr); }
+    .grid-3{ grid-template-columns:repeat(3,1fr); }
 
     .card{
       background:rgba(255,255,255,0.06);
@@ -217,9 +223,7 @@
       color:#eaf2f9;
     }
 
-    ul li{
-      margin-bottom:10px;
-    }
+    ul li{ margin-bottom:10px; }
 
     .single-visual{
       max-width:980px;
@@ -265,9 +269,7 @@
       align-items:start;
     }
 
-    .form-group{
-      margin-bottom:14px;
-    }
+    .form-group{ margin-bottom:14px; }
 
     input,
     textarea{
@@ -304,9 +306,7 @@
     }
 
     @media (max-width:980px){
-      .grid-4{
-        grid-template-columns:repeat(2,1fr);
-      }
+      .grid-4{ grid-template-columns:repeat(2,1fr); }
 
       .grid-3,
       .two-col,
@@ -315,175 +315,195 @@
         grid-template-columns:1fr;
       }
 
-      h1{
-        font-size:42px;
-      }
+      h1{ font-size:42px; }
     }
 
     @media (max-width:700px){
-      .grid-4{
-        grid-template-columns:1fr;
-      }
+      .grid-4{ grid-template-columns:1fr; }
 
-      h1{
-        font-size:34px;
-      }
-
-      h2{
-        font-size:30px;
-      }
+      h1{ font-size:34px; }
+      h2{ font-size:30px; }
 
       .hero p,
       .section-intro{
         font-size:17px;
       }
 
-      .btn{
-        width:100%;
-      }
+      .btn{ width:100%; }
     }
   </style>
 </head>
+
 <body>
   <div class="wrapper">
+
+    <div class="lang-switch">
+      <button id="btn-es" class="active" onclick="setLanguage('es')">ES</button>
+      <button id="btn-en" onclick="setLanguage('en')">EN</button>
+    </div>
 
     <section class="hero">
       <div class="hero-logo">
         <img src="logo-shb.jpg" alt="Logo SHB">
       </div>
 
-      <div class="eyebrow">Disaster Mitigation Infrastructure</div>
+      <div class="eyebrow" data-es="Infraestructura de Mitigación de Desastres" data-en="Disaster Mitigation Infrastructure">Infraestructura de Mitigación de Desastres</div>
 
       <h1>Smart Hybrid Bunker</h1>
-<p>
-  Unidad autónoma de protección humana diseñada para eventos extremos, capaz de operar sin servicios básicos durante condiciones de desastre, garantizando seguridad estructural, continuidad operativa y resiliencia ante amenazas climáticas severas.
-</p>
 
-<p class="subcopy">
-  SHB está orientado a protección de vida, resguardo de activos críticos y operación funcional en escenarios de huracanes, inundaciones y emergencias mayores.
-</p>
-      
+      <p data-es="Unidad autónoma de protección humana diseñada para eventos extremos, capaz de operar sin servicios básicos durante condiciones de desastre, garantizando seguridad estructural, continuidad operativa y resiliencia ante amenazas climáticas severas."
+         data-en="Autonomous human protection unit designed for extreme events, capable of operating without basic services during disaster conditions, ensuring structural safety, operational continuity, and resilience against severe climate threats.">
+        Unidad autónoma de protección humana diseñada para eventos extremos, capaz de operar sin servicios básicos durante condiciones de desastre, garantizando seguridad estructural, continuidad operativa y resiliencia ante amenazas climáticas severas.
+      </p>
+
+      <p class="subcopy"
+         data-es="SHB está orientado a protección de vida, resguardo de activos críticos y operación funcional en escenarios de huracanes, inundaciones y emergencias mayores."
+         data-en="SHB is designed for life protection, critical asset safeguarding, and functional operation in hurricane, flooding, and major emergency scenarios.">
+        SHB está orientado a protección de vida, resguardo de activos críticos y operación funcional en escenarios de huracanes, inundaciones y emergencias mayores.
+      </p>
 
       <div class="btn-row">
-        <a class="btn btn-primary" href="#validacion">Ver validación técnica</a>
+        <a class="btn btn-primary" href="#validacion" data-es="Ver validación técnica" data-en="View technical validation">Ver validación técnica</a>
       </div>
     </section>
 
     <section>
-      <h2>El problema</h2>
-      <p class="section-intro">
+      <h2 data-es="El problema" data-en="The Problem">El problema</h2>
+      <p class="section-intro"
+         data-es="Los eventos climáticos extremos generan interrupciones operativas, pérdidas económicas, vulnerabilidad estructural y exposición crítica de activos. El mercado exige soluciones robustas, escalables y desplegables para escenarios reales."
+         data-en="Extreme weather events create operational disruptions, economic losses, structural vulnerability, and critical asset exposure. The market requires robust, scalable, and deployable solutions for real-world scenarios.">
         Los eventos climáticos extremos generan interrupciones operativas, pérdidas económicas, vulnerabilidad estructural y exposición crítica de activos. El mercado exige soluciones robustas, escalables y desplegables para escenarios reales.
       </p>
+
       <div class="grid-4">
-        <div class="card center">Huracanes extremos y presión de viento severa.</div>
-        <div class="card center">Inundaciones simultáneas y elevación de agua.</div>
-        <div class="card center">Interrupción operativa de hogares, empresas y activos críticos.</div>
-        <div class="card center">Déficit de soluciones integradas con narrativa técnica y comercial.</div>
+        <div class="card center" data-es="Huracanes extremos y presión de viento severa." data-en="Extreme hurricanes and severe wind pressure.">Huracanes extremos y presión de viento severa.</div>
+        <div class="card center" data-es="Inundaciones simultáneas y elevación de agua." data-en="Simultaneous flooding and rising water levels.">Inundaciones simultáneas y elevación de agua.</div>
+        <div class="card center" data-es="Interrupción operativa de hogares, empresas y activos críticos." data-en="Operational disruption of homes, businesses, and critical assets.">Interrupción operativa de hogares, empresas y activos críticos.</div>
+        <div class="card center" data-es="Déficit de soluciones integradas con narrativa técnica y comercial." data-en="Lack of integrated solutions with technical and commercial positioning.">Déficit de soluciones integradas con narrativa técnica y comercial.</div>
       </div>
     </section>
 
     <section>
-      <h2>Mercado y oportunidad</h2>
-      <p class="section-intro">
+      <h2 data-es="Mercado y oportunidad" data-en="Market and Opportunity">Mercado y oportunidad</h2>
+      <p class="section-intro"
+         data-es="SHB no solo responde a un problema físico. Responde a una oportunidad concreta de mercado vinculada a mitigación, resiliencia, continuidad operativa, infraestructura crítica y adquisiciones públicas o privadas con presupuesto asignable."
+         data-en="SHB does not only address a physical problem. It addresses a concrete market opportunity tied to mitigation, resilience, operational continuity, critical infrastructure, and public or private procurement with assignable budgets.">
         SHB no solo responde a un problema físico. Responde a una oportunidad concreta de mercado vinculada a mitigación, resiliencia, continuidad operativa, infraestructura crítica y adquisiciones públicas o privadas con presupuesto asignable.
       </p>
+
       <div class="grid-3">
         <div class="card stat">
-          <div class="value">Gobierno / FEMA</div>
-          <div class="label">Aplicabilidad para respuesta a emergencias, protección civil, continuidad operativa e infraestructura crítica.</div>
+          <div class="value" data-es="Gobierno / FEMA" data-en="Government / FEMA">Gobierno / FEMA</div>
+          <div class="label" data-es="Aplicabilidad para respuesta a emergencias, protección civil, continuidad operativa e infraestructura crítica." data-en="Applicable to emergency response, civil protection, operational continuity, and critical infrastructure.">
+            Aplicabilidad para respuesta a emergencias, protección civil, continuidad operativa e infraestructura crítica.
+          </div>
         </div>
+
         <div class="card stat">
-          <div class="value">Privado</div>
-          <div class="label">Uso potencial en residencial premium, corporativo, logística crítica y activos expuestos a desastre.</div>
+          <div class="value" data-es="Privado" data-en="Private Sector">Privado</div>
+          <div class="label" data-es="Uso potencial en residencial premium, corporativo, logística crítica y activos expuestos a desastre." data-en="Potential use in premium residential, corporate, critical logistics, and disaster-exposed assets.">
+            Uso potencial en residencial premium, corporativo, logística crítica y activos expuestos a desastre.
+          </div>
         </div>
+
         <div class="card stat">
-          <div class="value">Producto</div>
-          <div class="label">Capacidad de convertirse en una solución comercialmente presentable, financiable y escalable.</div>
+          <div class="value" data-es="Producto" data-en="Product">Producto</div>
+          <div class="label" data-es="Capacidad de convertirse en una solución comercialmente presentable, financiable y escalable." data-en="Potential to become a commercially presentable, financeable, and scalable solution.">
+            Capacidad de convertirse en una solución comercialmente presentable, financiable y escalable.
+          </div>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>La solución SHB</h2>
-      <p class="section-intro">
+      <h2 data-es="La solución SHB" data-en="The SHB Solution">La solución SHB</h2>
+      <p class="section-intro"
+         data-es="Smart Hybrid Bunker plantea una unidad autónoma, modular y transportable que integra protección estructural, sistema de anclaje, resistencia frente a inundación, sellado, ventilación protegida y lógica de despliegue rápido."
+         data-en="Smart Hybrid Bunker proposes an autonomous, modular, and transportable unit integrating structural protection, anchoring, flood resistance, sealing, protected ventilation, and rapid deployment logic.">
         Smart Hybrid Bunker plantea una unidad autónoma, modular y transportable que integra protección estructural, sistema de anclaje, resistencia frente a inundación, sellado, ventilación protegida y lógica de despliegue rápido.
       </p>
+
       <div class="grid-4">
-        <div class="card center">Estructura reforzada.</div>
-        <div class="card center">Sistema de anclaje integrado.</div>
-        <div class="card center">Protección contra inundación.</div>
-        <div class="card center">Modularidad, reubicación e instalación rápida.</div>
+        <div class="card center" data-es="Estructura reforzada." data-en="Reinforced structure.">Estructura reforzada.</div>
+        <div class="card center" data-es="Sistema de anclaje integrado." data-en="Integrated anchoring system.">Sistema de anclaje integrado.</div>
+        <div class="card center" data-es="Protección contra inundación." data-en="Flood protection.">Protección contra inundación.</div>
+        <div class="card center" data-es="Modularidad, reubicación e instalación rápida." data-en="Modularity, relocation, and rapid installation.">Modularidad, reubicación e instalación rápida.</div>
       </div>
     </section>
 
     <section id="validacion">
-      <h2>Validación técnica</h2>
-      <p class="section-intro">
+      <h2 data-es="Validación técnica" data-en="Technical Validation">Validación técnica</h2>
+      <p class="section-intro"
+         data-es="Esta sección integra el contenido sustantivo de las tres láminas técnicas, ya ordenado con lectura profesional para inversionistas, gobierno, FEMA y compradores institucionales."
+         data-en="This section integrates the substantive content of the three technical sheets, organized for investors, government, FEMA-related stakeholders, and institutional buyers.">
         Esta sección integra el contenido sustantivo de las tres láminas técnicas, ya ordenado con lectura profesional para inversionistas, gobierno, FEMA y compradores institucionales.
       </p>
 
       <div class="tech-badges">
         <div class="tech-badge">Florida Building Code 2023</div>
         <div class="tech-badge">ASCE 7-22</div>
-        <div class="tech-badge">Evaluación ICC 500</div>
+        <div class="tech-badge" data-es="Evaluación ICC 500" data-en="ICC 500 Evaluation">Evaluación ICC 500</div>
       </div>
 
       <div class="two-col">
         <div class="panel">
-          <span class="mini-label">Base técnica</span>
-          <h3>Características, desempeño y especificaciones</h3>
+          <span class="mini-label" data-es="Base técnica" data-en="Technical Basis">Base técnica</span>
+          <h3 data-es="Características, desempeño y especificaciones" data-en="Features, Performance, and Specifications">Características, desempeño y especificaciones</h3>
           <ul>
-            <li>Refugio certificable contra huracanes e inundaciones con capacidad para 4 personas.</li>
-            <li>Diseño estructural orientado a cargas extremas de viento, presión interna e impacto de proyectiles.</li>
-            <li>Resistencia a vientos de hasta 250 mph según sitio y criterios aplicables.</li>
-            <li>Sistema de anclaje estructural integrado para resistir uplift, deslizamiento y volcamiento según tipo de suelo.</li>
-            <li>Diseño hermético con sellado de alto desempeño y ventilación protegida.</li>
-            <li>Protección frente a inundaciones mediante base elevada y lógica de instalación sobre sitio preparado.</li>
-            <li>Dimensiones exteriores de 20 ft x 8 ft x 8.5 ft.</li>
-            <li>Peso aproximado de 10,000 lbs.</li>
-            <li>Material principal: acero estructural reforzado.</li>
-            <li>Vida útil estimada superior a 30 años.</li>
+            <li data-es="Refugio certificable contra huracanes e inundaciones con capacidad para 4 personas." data-en="Certifiable hurricane and flood shelter with capacity for 4 people.">Refugio certificable contra huracanes e inundaciones con capacidad para 4 personas.</li>
+            <li data-es="Diseño estructural orientado a cargas extremas de viento, presión interna e impacto de proyectiles." data-en="Structural design oriented to extreme wind loads, internal pressure, and projectile impact.">Diseño estructural orientado a cargas extremas de viento, presión interna e impacto de proyectiles.</li>
+            <li data-es="Resistencia a vientos de hasta 250 mph según sitio y criterios aplicables." data-en="Wind resistance up to 250 mph depending on site and applicable criteria.">Resistencia a vientos de hasta 250 mph según sitio y criterios aplicables.</li>
+            <li data-es="Sistema de anclaje estructural integrado para resistir uplift, deslizamiento y volcamiento según tipo de suelo." data-en="Integrated structural anchoring system to resist uplift, sliding, and overturning according to soil conditions.">Sistema de anclaje estructural integrado para resistir uplift, deslizamiento y volcamiento según tipo de suelo.</li>
+            <li data-es="Diseño hermético con sellado de alto desempeño y ventilación protegida." data-en="Sealed design with high-performance sealing and protected ventilation.">Diseño hermético con sellado de alto desempeño y ventilación protegida.</li>
+            <li data-es="Protección frente a inundaciones mediante base elevada y lógica de instalación sobre sitio preparado." data-en="Flood protection through elevated base and prepared-site installation logic.">Protección frente a inundaciones mediante base elevada y lógica de instalación sobre sitio preparado.</li>
+            <li data-es="Dimensiones exteriores de 20 ft x 8 ft x 8.5 ft." data-en="Exterior dimensions of 20 ft x 8 ft x 8.5 ft.">Dimensiones exteriores de 20 ft x 8 ft x 8.5 ft.</li>
+            <li data-es="Peso aproximado de 10,000 lbs." data-en="Approximate weight of 10,000 lbs.">Peso aproximado de 10,000 lbs.</li>
+            <li data-es="Material principal: acero estructural reforzado." data-en="Primary material: reinforced structural steel.">Material principal: acero estructural reforzado.</li>
+            <li data-es="Vida útil estimada superior a 30 años." data-en="Estimated useful life exceeding 30 years.">Vida útil estimada superior a 30 años.</li>
           </ul>
         </div>
 
         <div class="panel">
-          <span class="mini-label">Sistema funcional</span>
-          <h3>Componentes críticos del SHB</h3>
+          <span class="mini-label" data-es="Sistema funcional" data-en="Functional System">Sistema funcional</span>
+          <h3 data-es="Componentes críticos del SHB" data-en="Critical SHB Components">Componentes críticos del SHB</h3>
           <ul>
-            <li>Puerta de alta seguridad con sellado hermético, diseñada para resistir presión interna y carga de impacto.</li>
-            <li>Ventilación con flujo controlado, protección contra entrada de agua y resistencia a presión.</li>
-            <li>Perfil estructural reforzado con rigidez interna para cargas externas severas.</li>
-            <li>Espacio interior optimizado para 4 personas, con bancos integrados, almacenamiento y soporte esencial.</li>
-            <li>Configuración modular para fabricación, transporte e instalación rápida.</li>
-            <li>Puntos de izaje integrados y conexiones desmontables para elevación y traslado.</li>
-            <li>Plataforma elevada y reconexión rápida para reinstalación segura en un nuevo sitio.</li>
+            <li data-es="Puerta de alta seguridad con sellado hermético, diseñada para resistir presión interna y carga de impacto." data-en="High-security door with hermetic sealing, designed to resist internal pressure and impact loads.">Puerta de alta seguridad con sellado hermético, diseñada para resistir presión interna y carga de impacto.</li>
+            <li data-es="Ventilación con flujo controlado, protección contra entrada de agua y resistencia a presión." data-en="Controlled-flow ventilation with water-entry protection and pressure resistance.">Ventilación con flujo controlado, protección contra entrada de agua y resistencia a presión.</li>
+            <li data-es="Perfil estructural reforzado con rigidez interna para cargas externas severas." data-en="Reinforced structural profile with internal rigidity for severe external loads.">Perfil estructural reforzado con rigidez interna para cargas externas severas.</li>
+            <li data-es="Espacio interior optimizado para 4 personas, con bancos integrados, almacenamiento y soporte esencial." data-en="Interior space optimized for 4 people, with integrated benches, storage, and essential support.">Espacio interior optimizado para 4 personas, con bancos integrados, almacenamiento y soporte esencial.</li>
+            <li data-es="Configuración modular para fabricación, transporte e instalación rápida." data-en="Modular configuration for manufacturing, transport, and rapid installation.">Configuración modular para fabricación, transporte e instalación rápida.</li>
+            <li data-es="Puntos de izaje integrados y conexiones desmontables para elevación y traslado." data-en="Integrated lifting points and detachable connections for lifting and relocation.">Puntos de izaje integrados y conexiones desmontables para elevación y traslado.</li>
+            <li data-es="Plataforma elevada y reconexión rápida para reinstalación segura en un nuevo sitio." data-en="Elevated platform and rapid reconnection for safe reinstallation at a new site.">Plataforma elevada y reconexión rápida para reinstalación segura en un nuevo sitio.</li>
           </ul>
         </div>
       </div>
 
       <div class="two-col" style="margin-top:22px;">
         <div class="panel">
-          <span class="mini-label">Proceso operativo</span>
-          <h3>Desmontaje, traslado y reinstalación</h3>
+          <span class="mini-label" data-es="Proceso operativo" data-en="Operational Process">Proceso operativo</span>
+          <h3 data-es="Desmontaje, traslado y reinstalación" data-en="Disassembly, Transport, and Reinstallation">Desmontaje, traslado y reinstalación</h3>
           <ul>
-            <li><strong>Desacople:</strong> retiro de pernos de anclaje y desconexión de utilidades si aplica.</li>
-            <li><strong>Elevación:</strong> izaje con grúa a través de puntos integrados y certificados de carga.</li>
-            <li><strong>Transporte:</strong> aseguramiento en tráiler y traslado al nuevo sitio.</li>
-            <li><strong>Reinstalación:</strong> colocación sobre nueva base preparada, reconexión y puesta en servicio.</li>
-            <li>El sistema está concebido para ciclos repetidos de instalación y desmontaje sin comprometer su integridad estructural.</li>
+            <li data-es="Desacople: retiro de pernos de anclaje y desconexión de utilidades si aplica." data-en="Disconnection: removal of anchor bolts and utility disconnection if applicable."><strong>Desacople:</strong> retiro de pernos de anclaje y desconexión de utilidades si aplica.</li>
+            <li data-es="Elevación: izaje con grúa a través de puntos integrados y certificados de carga." data-en="Lifting: crane lifting through integrated and load-certified points."><strong>Elevación:</strong> izaje con grúa a través de puntos integrados y certificados de carga.</li>
+            <li data-es="Transporte: aseguramiento en tráiler y traslado al nuevo sitio." data-en="Transport: securing on a trailer and relocation to the new site."><strong>Transporte:</strong> aseguramiento en tráiler y traslado al nuevo sitio.</li>
+            <li data-es="Reinstalación: colocación sobre nueva base preparada, reconexión y puesta en servicio." data-en="Reinstallation: placement on a new prepared base, reconnection, and commissioning."><strong>Reinstalación:</strong> colocación sobre nueva base preparada, reconexión y puesta en servicio.</li>
+            <li data-es="El sistema está concebido para ciclos repetidos de instalación y desmontaje sin comprometer su integridad estructural." data-en="The system is conceived for repeated installation and disassembly cycles without compromising structural integrity.">El sistema está concebido para ciclos repetidos de instalación y desmontaje sin comprometer su integridad estructural.</li>
           </ul>
         </div>
 
         <div class="panel">
-          <span class="mini-label">Lectura ejecutiva</span>
-          <h3>Cómo debe presentarse SHB</h3>
-          <p>
+          <span class="mini-label" data-es="Lectura ejecutiva" data-en="Executive Positioning">Lectura ejecutiva</span>
+          <h3 data-es="Cómo debe presentarse SHB" data-en="How SHB Should Be Presented">Cómo debe presentarse SHB</h3>
+          <p data-es="SHB no debe venderse como un simple refugio aislado. Debe presentarse como una plataforma física de mitigación y protección, con capacidad de convertirse en producto, activo de inversión y solución institucional."
+             data-en="SHB should not be sold as a simple isolated shelter. It should be presented as a physical mitigation and protection platform with the potential to become a product, investment asset, and institutional solution.">
             SHB no debe venderse como un simple refugio aislado. Debe presentarse como una plataforma física de mitigación y protección, con capacidad de convertirse en producto, activo de inversión y solución institucional.
           </p>
-          <p>
+          <p data-es="El enfoque correcto combina protección contra huracanes, inundaciones, continuidad operativa, modularidad, relocalización, instalación rápida y escalabilidad comercial."
+             data-en="The correct approach combines hurricane protection, flood protection, operational continuity, modularity, relocation, rapid installation, and commercial scalability.">
             El enfoque correcto combina protección contra huracanes, inundaciones, continuidad operativa, modularidad, relocalización, instalación rápida y escalabilidad comercial.
           </p>
-          <p>
+          <p data-es="La narrativa adecuada para inversionistas, sector privado y gobierno es: producto + validación técnica + mercado + posibilidad de escalamiento."
+             data-en="The proper narrative for investors, the private sector, and government is: product + technical validation + market + scalability potential.">
             La narrativa adecuada para inversionistas, sector privado y gobierno es: <strong>producto + validación técnica + mercado + posibilidad de escalamiento</strong>.
           </p>
         </div>
@@ -491,41 +511,47 @@
     </section>
 
     <section>
-      <h2>Aplicaciones</h2>
-      <p class="section-intro">
+      <h2 data-es="Aplicaciones" data-en="Applications">Aplicaciones</h2>
+      <p class="section-intro"
+         data-es="El modelo SHB puede adaptarse a distintas verticales donde la continuidad operativa y la protección física son prioritarias."
+         data-en="The SHB model can be adapted to different verticals where operational continuity and physical protection are priorities.">
         El modelo SHB puede adaptarse a distintas verticales donde la continuidad operativa y la protección física son prioritarias.
       </p>
       <div class="grid-4">
-        <div class="card center">Residencial.</div>
-        <div class="card center">Gobierno / FEMA.</div>
-        <div class="card center">Empresas privadas.</div>
-        <div class="card center">Infraestructura crítica.</div>
+        <div class="card center" data-es="Residencial." data-en="Residential.">Residencial.</div>
+        <div class="card center" data-es="Gobierno / FEMA." data-en="Government / FEMA.">Gobierno / FEMA.</div>
+        <div class="card center" data-es="Empresas privadas." data-en="Private companies.">Empresas privadas.</div>
+        <div class="card center" data-es="Infraestructura crítica." data-en="Critical infrastructure.">Infraestructura crítica.</div>
       </div>
     </section>
 
     <section>
-      <h2>Visual principal del sistema</h2>
-      <p class="section-intro">
+      <h2 data-es="Visual principal del sistema" data-en="Main System Visual">Visual principal del sistema</h2>
+      <p class="section-intro"
+         data-es="Se deja una sola imagen visible para evitar saturación visual. La carga técnica de las otras láminas ya quedó incorporada en el cuerpo de la presentación."
+         data-en="A single main image is used to avoid visual saturation. The technical substance from the other sheets has been integrated into the body of the presentation.">
         Se deja una sola imagen visible para evitar saturación visual. La carga técnica de las otras láminas ya quedó incorporada en el cuerpo de la presentación.
       </p>
       <div class="single-visual">
         <img src="shb.jpg" alt="Sistema SHB">
-        <p>Sistema SHB – imagen principal de referencia del concepto.</p>
+        <p data-es="Sistema SHB – imagen principal de referencia del concepto." data-en="SHB System – main reference image of the concept.">Sistema SHB – imagen principal de referencia del concepto.</p>
       </div>
     </section>
 
     <section id="contacto">
-      <h2>Solicitar información</h2>
-      <p class="section-intro">
+      <h2 data-es="Solicitar información" data-en="Request Information">Solicitar información</h2>
+      <p class="section-intro"
+         data-es="El canal de contacto queda concentrado en un solo flujo: captura de lead y apertura posterior de WhatsApp para seguimiento ejecutivo."
+         data-en="The contact channel is concentrated into a single flow: lead capture and WhatsApp opening for executive follow-up.">
         El canal de contacto queda concentrado en un solo flujo: captura de lead y apertura posterior de WhatsApp para seguimiento ejecutivo.
       </p>
 
       <div class="contact-wrap">
         <div class="panel">
-          <h3>Contacto ejecutivo</h3>
+          <h3 data-es="Contacto ejecutivo" data-en="Executive Contact">Contacto ejecutivo</h3>
           <form id="leadForm">
             <div class="form-group">
-              <input type="text" id="name" placeholder="Nombre completo" required>
+              <input type="text" id="name" data-placeholder-es="Nombre completo" data-placeholder-en="Full name" placeholder="Nombre completo" required>
             </div>
 
             <div class="form-group">
@@ -533,24 +559,26 @@
             </div>
 
             <div class="form-group">
-              <input type="text" id="interest" placeholder="Monto estimado o nivel de interés">
+              <input type="text" id="interest" data-placeholder-es="Interés del contacto" data-placeholder-en="Contact interest" placeholder="Interés del contacto">
             </div>
 
             <div class="form-group">
-              <textarea id="message" placeholder="Mensaje"></textarea>
+              <textarea id="message" data-placeholder-es="Mensaje" data-placeholder-en="Message" placeholder="Mensaje"></textarea>
             </div>
 
-            <button class="btn btn-primary" type="submit">Enviar y abrir WhatsApp</button>
+            <button class="btn btn-primary" type="submit" data-es="Enviar y abrir WhatsApp" data-en="Send and open WhatsApp">Enviar y abrir WhatsApp</button>
             <div class="status" id="statusMessage"></div>
           </form>
         </div>
 
         <div class="panel">
-          <h3>Canal directo</h3>
-          <p>
+          <h3 data-es="Canal directo" data-en="Direct Channel">Canal directo</h3>
+          <p data-es="Una vez registrado el lead, el sistema abre el canal WhatsApp con los datos ya estructurados para acelerar la conversación comercial."
+             data-en="Once the lead is captured, the system opens WhatsApp with the data already structured to accelerate the commercial conversation.">
             Una vez registrado el lead, el sistema abre el canal WhatsApp con los datos ya estructurados para acelerar la conversación comercial.
           </p>
-          <p>
+          <p data-es="El sitio queda con una sola ruta de contacto útil, sin botones duplicados ni ventanas adicionales."
+             data-en="The site keeps a single useful contact path, with no duplicated buttons or additional windows.">
             El sitio queda con una sola ruta de contacto útil, sin botones duplicados ni ventanas adicionales.
           </p>
         </div>
@@ -558,7 +586,7 @@
     </section>
 
     <div class="footer">
-      Smart Hybrid Bunker | Infraestructura de mitigación y resiliencia
+      Smart Hybrid Bunker | <span data-es="Infraestructura de mitigación y resiliencia" data-en="Mitigation and resilience infrastructure">Infraestructura de mitigación y resiliencia</span>
       <br>
       Email: digisegusa@gmail.com
       <br>
@@ -569,6 +597,23 @@
 
   <script>
     const WHATSAPP_NUMBER = "17863320066";
+    let currentLang = "es";
+
+    function setLanguage(lang){
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-es][data-en]").forEach(function(el){
+        el.textContent = el.getAttribute("data-" + lang);
+      });
+
+      document.querySelectorAll("[data-placeholder-es][data-placeholder-en]").forEach(function(el){
+        el.placeholder = el.getAttribute("data-placeholder-" + lang);
+      });
+
+      document.getElementById("btn-es").classList.toggle("active", lang === "es");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+    }
 
     function validateEmail(email){
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -591,13 +636,22 @@
     }
 
     function buildWhatsAppUrl(data){
+      const title = currentLang === "en" ? "New SHB contact:\n" : "Nuevo contacto SHB:\n";
+      const nameLabel = currentLang === "en" ? "Name: " : "Nombre: ";
+      const emailLabel = "Email: ";
+      const interestLabel = currentLang === "en" ? "Interest: " : "Interés: ";
+      const messageLabel = currentLang === "en" ? "Message: " : "Mensaje: ";
+      const originLabel = currentLang === "en" ? "Source: " : "Origen: ";
+      const notProvided = currentLang === "en" ? "Not provided" : "No indicado";
+      const noMessage = currentLang === "en" ? "No message" : "Sin mensaje";
+
       const text =
-        "Nuevo contacto SHB:\n" +
-        "Nombre: " + data.nombre + "\n" +
-        "Email: " + data.email + "\n" +
-        "Interés: " + (data.interes || "No indicado") + "\n" +
-        "Mensaje: " + (data.mensaje || "Sin mensaje") + "\n" +
-        "Origen: " + data.origen;
+        title +
+        nameLabel + data.nombre + "\n" +
+        emailLabel + data.email + "\n" +
+        interestLabel + (data.interes || notProvided) + "\n" +
+        messageLabel + (data.mensaje || noMessage) + "\n" +
+        originLabel + data.origen;
 
       return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
     }
@@ -608,21 +662,21 @@
       const data = buildLead();
 
       if(!data.nombre){
-        setStatus("Debes indicar tu nombre completo.", true);
+        setStatus(currentLang === "en" ? "Please enter your full name." : "Debes indicar tu nombre completo.", true);
         return;
       }
 
       if(!data.email){
-        setStatus("Debes indicar tu email.", true);
+        setStatus(currentLang === "en" ? "Please enter your email." : "Debes indicar tu email.", true);
         return;
       }
 
       if(!validateEmail(data.email)){
-        setStatus("Debes indicar un email válido.", true);
+        setStatus(currentLang === "en" ? "Please enter a valid email." : "Debes indicar un email válido.", true);
         return;
       }
 
-      setStatus("Redirigiendo a WhatsApp...", false);
+      setStatus(currentLang === "en" ? "Redirecting to WhatsApp..." : "Redirigiendo a WhatsApp...", false);
 
       const url = buildWhatsAppUrl(data);
 
@@ -630,7 +684,8 @@
         window.location.href = url;
       }, 200);
     });
-    <!-- cambio -->
+
+    setLanguage("es");
   </script>
 </body>
-</html>     
+</html>
